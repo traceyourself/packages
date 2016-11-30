@@ -6,8 +6,11 @@ import { Y } from 'obj.Layout'
 import H from 'atm.Header'
 
 const videoWidth = 640
-const videoHeight = 480
+const videoHeight = 360
 const ratio = videoWidth / videoHeight
+
+const maxWidth = 900
+const maxHeight = maxWidth / ratio
 
 const paddingFromViewport = 20
 
@@ -24,18 +27,18 @@ const UI = () =>
         }
       }} />
       <iframe {...{
-        src: 'https://player.vimeo.com/video/57251210',
+        src: 'https://player.vimeo.com/video/119448610',
         // width: '640',
-        // height: '480',
+        // height: '360',
         frameBorder: '0',
         // webkitAllowFullScreen: true,
         // mozAllowFullScreen: true,
         allowFullScreen: true,
         style: {
           width: '100%',
-          maxWidth: '500px',
+          maxWidth: `${maxWidth}px`,
           height: `calc(calc(100vw - ${paddingFromViewport * 2}px) / ${ratio})`,
-          maxHeight: '400px'
+          maxHeight: `${maxHeight}px`
         }
       }} />
     </Y>

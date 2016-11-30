@@ -44,7 +44,7 @@ const UI = ({compactLayout}) =>
     {stepsData.map(({screenshot, number, icon, title, content}, i) =>
       <X x {...{
         style: {
-          marginTop: '64px',
+          marginTop: i > 0 ? '200px' : '100px',
           flexDirection: i % 2 ? 'row' : 'row-reverse'
         },
         key: i

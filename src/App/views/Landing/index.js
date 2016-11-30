@@ -9,12 +9,13 @@ import Nav from './components/Nav'
 import Main1 from './components/Main1'
 import AsSeenIn from './components/AsSeenIn'
 import Main2 from './components/Main2'
-import Steps from './components/Steps'
+import HowItWorks from './components/Steps'
 import Video from './components/Video'
 import Packages from './components/Packages'
 import Testimonials from './components/Testimonials'
 import Gift from './components/Gift'
 import Questions from './components/Questions'
+import Footer from './components/Footer'
 
 const WW = ({children, maxWidth = 1000}) =>
   <div {...{
@@ -61,11 +62,15 @@ export default () =>
     </div>
     <div {...{
       style: {
+        backgroundImage: `url('/assets/images/HowItWorks/howitworksbackground.svg')`,
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: '-200px center',
+        backgroundSize: '700px',
         padding: '64px 0'
       }
     }}>
       <WW>
-        <Steps />
+        <HowItWorks />
       </WW>
     </div>
     <div {...{
@@ -124,6 +129,27 @@ export default () =>
     }}>
       <WW>
         <Questions />
+      </WW>
+    </div>
+    <div {...{
+      style: {
+        padding: '128px 0'
+      }
+    }}>
+      <WW>
+        <Footer />
+      </WW>
+    </div>
+    <div {...{
+      style: {
+        padding: '32px 0',
+        fontWeight: 'bold',
+        fontSize: '0.9em',
+        color: colors.slate[2]
+      }
+    }}>
+      <WW>
+        <div style={{marginLeft: '150px'}}>Copyright, Trace Inc.</div>
       </WW>
     </div>
   </div>

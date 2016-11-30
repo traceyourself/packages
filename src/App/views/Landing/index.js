@@ -15,6 +15,7 @@ import Packages from './components/Packages'
 import Testimonials from './components/Testimonials'
 import Gift from './components/Gift'
 import Questions from './components/Questions'
+import Links from './components/Links'
 import Footer from './components/Footer'
 
 const WW = ({children, maxWidth = 1000}) =>
@@ -133,23 +134,20 @@ export default () =>
     </div>
     <div {...{
       style: {
-        padding: '128px 0'
+        padding: '128px 0 60px'
       }
     }}>
       <WW>
-        <Footer />
+        <Links />
       </WW>
     </div>
     <div {...{
       style: {
         padding: '32px 0',
-        fontWeight: 'bold',
-        fontSize: '0.9em',
-        color: colors.slate[2]
       }
     }}>
       <WW>
-        <div style={{marginLeft: '150px'}}>Copyright, Trace Inc.</div>
+        <Footer />
       </WW>
     </div>
   </div>

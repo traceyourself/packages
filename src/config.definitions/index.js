@@ -5,7 +5,7 @@ export const packages = {
     subtitle: '4 Generations',
     checklist: [
       'Bios on 3-5 of your ancestors',
-      '4 generations pedigree chart',
+      'Up to 4 generations pedigree chart',
       'Contextual information',
       'Pictures, records, and documents'
     ],
@@ -14,10 +14,10 @@ export const packages = {
   lineage: {
     icon: '/assets/images/lineageBook.svg',
     name: 'Lineage Package',
-    subtitle: '8 Generations',
+    subtitle: '6 Generations',
     checklist: [
       'Bios on 6-10 individual ancestors',
-      '6 generations pedigree chart',
+      'Up to 6 generations pedigree chart',
       'Contextual information',
       'Pictures, records, and documents',
       'Cited sources and research log'

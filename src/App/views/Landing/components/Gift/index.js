@@ -45,7 +45,7 @@ const UI = ({viewSize}) => {
           {imageNode}
         </div>
         <Y y>
-          {textNodes}
+          {textNodes.map((n, i) => <div key={i}>{n}</div>)}
         </Y>
       </Y>
     )

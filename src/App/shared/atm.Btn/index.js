@@ -23,13 +23,15 @@ const buttonStyles = {
   backgroundColor: colors.blue[0],
   fontWeight: 'bold',
   color: 'white',
-  outline: 'none'
+  outline: 'none',
+  cursor: 'pointer'
 }
 const styles = StyleSheet.create({
   button: buttonStyles,
 
   'button-disabled': {
     ...buttonStyles,
-    backgroundColor: '#BABABA'
+    backgroundColor: '#BABABA',
+    cursor: 'auto'
   }
 })

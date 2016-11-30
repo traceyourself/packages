@@ -1,1 +1,1 @@
-export { appSpecs } from 'App/state/reducers'
+export { viewState } from 'App/state/reducers'

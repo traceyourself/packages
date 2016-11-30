@@ -2,8 +2,6 @@ import React from 'react'
 
 import { connect } from 'react-redux'
 
-import { StyleSheet, css } from 'aphrodite'
-
 import { X, Y } from 'obj.Layout'
 
 const imageDirectory = '/assets/images/AsSeenIn/'
@@ -35,24 +33,12 @@ const logos = [
   }
 ]
 
-const styles = StyleSheet.create({
-  wrapper: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center'
-  },
-
-  image: {
-    margin: '20px'
-  }
-})
-
 const logoNodes = logos.map(({filename, height}, i) =>
   <div key={i}>
     <img {...{
-      className: css(styles.image),
       style: {
-        height
+        height,
+        margin: '20px'
       },
       src: `${imageDirectory}${filename}`
     }} />
@@ -63,7 +49,10 @@ const UI = ({verticalLayout}) =>
   <X {...{
     justify: 'center',
     align: 'center',
-    wrap: 'wrap'
+    wrap: 'wrap',
+    style: {
+      padding: '16px 0'
+    }
   }}>{logoNodes}</X>
 
 const mapStateToProps = ({viewState: {viewportSize}}) => ({

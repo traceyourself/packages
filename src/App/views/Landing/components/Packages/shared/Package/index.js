@@ -1,44 +1,99 @@
 import React from 'react'
 
 import { StyleSheet, css } from 'aphrodite'
+import { colors } from 'App/style/settings'
 
 import { X, Y } from 'obj.Layout'
 import Btn from 'atm.Btn'
 
 export default ({icon, name, subtitle, checklist, price, disabled}) =>
-  <Y y {...{
+  <div {...{
     style: {
-      border: '1px solid #000',
+      position: 'relative',
+      overflow: 'hidden',
+      boxShadow: '0 0 12px 5px rgba(0, 0, 0, 0.05)',
+      borderRadius: '8px',
+      background: disabled ? '#F9F9F9' : 'white',
       padding: '32px',
-      opacity: disabled ? '0.5' : '1.0'
+      // opacity: disabled ? '0.5' : '1.0'
     }
   }}>
-    <X x y style={{
-      borderRadius: '50%',
-      backgroundColor: '#F0F3F5',
-      width: '100px',
-      height: '100px',
-      padding: '32px'
-    }}>
-      <img {...{ src: icon, className: css(styles.icon) }} />
-    </X>
-    <h2>{name}</h2>
-    <div>{subtitle}</div>
-    <ul {...{ className: css(styles.checklist) }}>
-      {checklist.map((item, i) =>
-        <li key={i}>{item}</li>
-      )}
-    </ul>
-    <div>${price}</div>
-    <Btn copy='Get This Package' />
-  </Y>
+    {disabled &&
+      <div {...{
+        style: {
+          position: 'absolute', top: '25px', right: '-34px',
+          transform: 'rotate(0.125turn)',
+          background: colors.blue[0],
+          width: '140px',
+          height: '20px',
+          lineHeight: '20px',
+          color: 'white',
+          textAlign: 'center',
+          fontSize: '12px',
+          fontWeight: 'bold'
+        }
+      }}>Coming soon</div>
+    }
+    <Y y>
+      <X x y style={{
+        borderRadius: '50%',
+        backgroundColor: '#F0F3F5',
+        width: '100px',
+        height: '100px',
+        padding: '32px'
+      }}>
+        <img {...{
+          src: icon,
+          style: {
+            maxHeight: '60px',
+            maxWidth: '60px'
+          }
+        }} />
+      </X>
+      <div style={{
+        margin: '32px 0',
+        textAlign: 'center'
+      }}>
+        <h2>{name}</h2>
+        <div style={{
+          fontSize: '1.2em'
+        }}>{subtitle}</div>
+      </div>
+      <ul {...{
+        style: {
+          height: '220px'
+        }
+      }}>
+        {checklist.map((item, i) =>
+          <li key={i}>
+            <X x {...{
+              style: {
+                margin: '16px 0'
+              }
+            }}>
+              <img {...{
+                src: name === 'Lineage Package'
+                  ? '/assets/images/Packages/checkmark-orange.svg'
+                  : '/assets/images/Packages/checkmark-blue.svg',
+                style: {
+                  marginRight: '8px',
+                  width: '20px',
+                  height: '15px'
+                }
+              }} />
+              <div style={{whiteSpace: 'nowrap'}}>{item}</div>
+            </X>
+          </li>
+        )}
+      </ul>
+      <div style={{
+        marginBottom: '8px',
+        fontSize: '1.5em',
+        fontWeight: 'bold'
+      }}>${price}</div>
+      <Btn {...{ copy: 'Get This Package', disabled }} />
+    </Y>
+  </div>
 
 const styles = StyleSheet.create({
-  icon: {
-    maxHeight: '60px',
-    maxWidth: '60px'
-  },
-  checklist: {
-    height: '100px'
-  }
 })

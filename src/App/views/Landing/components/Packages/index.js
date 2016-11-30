@@ -11,7 +11,12 @@ import { mapToArray } from 'utils'
 
 const UI = ({verticalLayout}) => {
   const packagesNodes = mapToArray(packages).map((data, i) =>
-    <div key={i}>
+    <div {...{
+      key: i,
+      style: {
+        margin: '32px'
+      }
+    }}>
       <Package {...data} />
     </div>
   )
@@ -28,7 +33,7 @@ const UI = ({verticalLayout}) => {
 }
 
 const mapStateToProps = ({ viewState: { viewportSize } }) => ({
-  verticalLayout: viewportSize.width < 600
+  verticalLayout: viewportSize.width < 800
 })
 
 export default connect(mapStateToProps)(UI)

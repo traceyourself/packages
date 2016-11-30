@@ -31,7 +31,10 @@ const UI = ({viewSize}) => {
       }
     }}>{`Each family is unique, a story waiting to be told. We'll provide you the people and history you never knew.`}</div>,
     <Btn {...{
-      copy: 'Give Trace as a Gift'
+      copy: 'Give Trace as a Gift',
+      style: {
+        backgroundColor: '#D65C34'
+      }
     }}/>
   ]
 
@@ -49,7 +52,7 @@ const UI = ({viewSize}) => {
     : (
       <X x justify='space-between'>
         <div style={{maxWidth: '500px'}}>
-          {textNodes}
+          {textNodes.map((n, i) => <div key={i}>{n}</div>)}
         </div>
         {imageNode}
       </X>

@@ -12,11 +12,11 @@ const links = [
   { copy: 'Login', link: '/' }
 ]
 
-const Landing = () =>
+const Nav = () =>
   <X x spaced className={css(styles.container)}>
     <div>
       <img {...{
-        src: '/Nav/wordmark-blue.svg',
+        src: '/assets/images/Nav/wordmark-blue.svg',
         style: {
           height: '24px'
         }
@@ -33,12 +33,11 @@ const Landing = () =>
     </X>
   </X>
 
-export default Landing
+export default Nav
 
 const styles = StyleSheet.create({
   container: {
-    width: '100%',
-    minHeight: '100%'
+    width: '100%'
   },
 
   link: {

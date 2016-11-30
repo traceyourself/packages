@@ -5,40 +5,52 @@ import { StyleSheet, css } from 'aphrodite'
 import { X } from 'obj.Layout'
 import H from 'atm.Header'
 
-const Step = ({number, image, title, content}) =>
-  <X>
-    <div className={css(styles.numberWrapper)}>
+const Step = ({number, image, title, content, compact}) => {
+  const numberNode =
+    <div style={{marginRight: '14px'}}>
       <img className={css(styles.number)} src={number} />
     </div>
-    <div>
+
+  const titleNode =
+    <H {...{
+      copy: title,
+      level: 2,
+      style: compact && {
+        fontSize: '1.3em'
+      }
+    }}/>
+
+  return compact
+    ? (
       <div>
-        <img className={css(styles.image)} src={image} />
+        <X x style={{
+          marginBottom: '16px'
+        }}>
+          {numberNode}
+          {titleNode}
+        </X>
+        {content}
       </div>
-      <H level={2}>{title}</H>
-      <div>{content}</div>
-    </div>
-  </X>
+    )
+    : (
+      <X>
+        {numberNode}
+        <div>
+          <div style={{marginBottom: '24px'}}>
+            {titleNode}
+          </div>
+          <div>{content}</div>
+        </div>
+      </X>
+    )
+}
 
 export default Step
 
-const imageHeight = 80
-const numberSize = '80px'
-const imageMarginBotton = 16
-const numberPadding = imageHeight + imageMarginBotton
+const numberSize = 60
 const styles = StyleSheet.create({
-  numberWrapper: {
-    paddingTop: numberPadding,
-    width: numberSize,
-    height: numberSize
-  },
-
   number: {
-    width: numberSize,
-    height: numberSize
-  },
-
-  image: {
-    marginBottom: imageMarginBotton,
-    height: imageHeight
+    width: `${numberSize}px`,
+    height: `${numberSize}px`
   }
 })

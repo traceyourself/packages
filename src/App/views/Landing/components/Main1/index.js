@@ -1,25 +1,45 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 import { X } from 'obj.Layout'
 import H from 'atm.Header'
 import Btn from 'atm.Btn'
 
-export default () =>
+const UI = ({viewSize}) =>
   <X x>
-    <div>
-      <img {...{
-        src: '/Main1/hero1.svg',
-        width: '400px'
-      }} />
-    </div>
+    {viewSize !== 'mobile' &&
+      <div style={{marginRight: '32px'}}>
+        <img {...{
+          src: '/assets/images/Main1/hero1.svg',
+          width: viewSize === 'narrow' ? '200px' : '500px'
+        }} />
+      </div>
+    }
     <div>
       <H {...{
         level: 2,
-        copy: 'Yourself, discovered'
+        copy: 'Yourself, discovered',
+        style: {
+          marginBottom: '16px'
+        }
       }} />
-      <div>{`You belong to a family narrative that is bigger than yourself, it's time to find out what that is.`}</div>
+      <div {...{
+        style: {
+          marginBottom: '32px'
+        }
+      }}>{`You belong to a family narrative that is bigger than yourself, it's time to find out what that is.`}</div>
       <div>
         <Btn copy='Sign Up' />
       </div>
     </div>
   </X>
+
+const mapStateToProps = ({ viewState: { viewportSize } }) => ({
+  viewSize: viewportSize.width < 700
+    ? 'mobile'
+    : viewportSize.width < 900
+      ? 'narrow'
+      : 'full'
+})
+
+export default connect(mapStateToProps)(UI)

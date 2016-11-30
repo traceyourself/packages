@@ -1,6 +1,6 @@
 export const packages = {
   origins: {
-    icon: 'http://www.picgifs.com/clip-art/flowers-and-plants/plants/clip-art-plants-698572.jpg',
+    icon: '/assets/images/originsTree.svg',
     name: 'Origins Package',
     subtitle: '4 Generations',
     checklist: [
@@ -12,7 +12,7 @@ export const packages = {
     price: 149
   },
   lineage: {
-    icon: 'https://upload.wikimedia.org/wikipedia/commons/b/bd/Draw_book.png',
+    icon: '/assets/images/lineageBook.svg',
     name: 'Lineage Package',
     subtitle: '8 Generations',
     checklist: [

@@ -7,11 +7,21 @@ import Btn from 'atm.Btn'
 
 export default ({icon, name, subtitle, checklist, price, disabled}) =>
   <Y y {...{
-    style: disabled && {
-      opacity: '0.5'
+    style: {
+      border: '1px solid #000',
+      padding: '32px',
+      opacity: disabled ? '0.5' : '1.0'
     }
   }}>
-    <img {...{ src: icon, className: css(styles.icon) }} />
+    <X x y style={{
+      borderRadius: '50%',
+      backgroundColor: '#F0F3F5',
+      width: '100px',
+      height: '100px',
+      padding: '32px'
+    }}>
+      <img {...{ src: icon, className: css(styles.icon) }} />
+    </X>
     <h2>{name}</h2>
     <div>{subtitle}</div>
     <ul {...{ className: css(styles.checklist) }}>
@@ -25,7 +35,8 @@ export default ({icon, name, subtitle, checklist, price, disabled}) =>
 
 const styles = StyleSheet.create({
   icon: {
-    height: '60px'
+    maxHeight: '60px',
+    maxWidth: '60px'
   },
   checklist: {
     height: '100px'

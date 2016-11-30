@@ -1,60 +1,84 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 import { X, Y } from 'obj.Layout'
 import Step from './shared/Step'
+import H from 'atm.Header'
 
 import { StyleSheet, css } from 'aphrodite'
 
-const screenshot = '/HowItWorks/screenshot.jpg'
+const imagesDirectory = '/assets/images/HowItWorks/'
+
+const screenshot = `${imagesDirectory}screenshot.jpg`
 
 const stepsData = [
   {
-    screenshot,
-    number: '/HowItWorks/number1.svg',
-    icon: '/HowItWorks/howitworksplaceholder.svg',
+    screenshot: `${imagesDirectory}step1.svg`,
+    number: `${imagesDirectory}number1.svg`,
+    icon: `${imagesDirectory}howitworksplaceholder.svg`,
     title: `Select your research package`,
     content: `Each family is unique, a story waiting to be told. We'll provide you with the people and history you never knew without tedious research. With Trace, learning about you has never been easier.`
   },
   {
-    screenshot,
-    number: '/HowItWorks/number2.svg',
-    icon: '/HowItWorks/howitworksplaceholder.svg',
-    title: `Select your research package`,
+    screenshot: `${imagesDirectory}step2.svg`,
+    number: `${imagesDirectory}number2.svg`,
+    icon: `${imagesDirectory}howitworksplaceholder.svg`,
+    title: `Fill out a short survey about your family`,
     content: `Each family is unique, a story waiting to be told. We'll provide you with the people and history you never knew without tedious research. With Trace, learning about you has never been easier.`
   },
   {
-    screenshot,
-    number: '/HowItWorks/number3.svg',
-    icon: '/HowItWorks/howitworksplaceholder.svg',
-    title: `Select your research package`,
+    screenshot: `${imagesDirectory}step3.svg`,
+    number: `${imagesDirectory}number3.svg`,
+    icon: `${imagesDirectory}howitworksplaceholder.svg`,
+    title: `Receive results from your research experts`,
     content: `Each family is unique, a story waiting to be told. We'll provide you with the people and history you never knew without tedious research. With Trace, learning about you has never been easier.`
   }
 ]
 
-export default () =>
-  <Y>
+const UI = ({compactLayout}) =>
+  <Y y>
+    <H {...{
+      copy: 'How It Works',
+      level: 2
+    }}/>
     {stepsData.map(({screenshot, number, icon, title, content}, i) =>
       <X x {...{
         style: {
+          marginTop: '64px',
           flexDirection: i % 2 ? 'row' : 'row-reverse'
         },
         key: i
       }}>
-        <div>
-          <img {...{ src: screenshot, className: css(styles.screenshot) }} />
-        </div>
+        {!compactLayout &&
+          <div {...{
+            style: {
+              margin: i % 2 ? '0 32px 0 0' : '0 0 0 32px'
+            }
+          }}>
+            <img {...{
+              src: screenshot,
+              style: {
+                width: '400px'
+              }
+            }} />
+          </div>
+        }
         <Step {...{
           number,
           image: icon,
           title,
-          content
+          content,
+          compact: compactLayout
         }} />
       </X>
     )}
   </Y>
 
+const mapStateToProps = ({ viewState: { viewportSize } }) => ({
+  compactLayout: viewportSize.width < 950
+})
+
+export default connect(mapStateToProps)(UI)
+
 const styles = StyleSheet.create({
-  screenshot: {
-    width: '200px'
-  }
 })

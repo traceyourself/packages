@@ -6,7 +6,7 @@ import { StyleSheet, css } from 'aphrodite'
 
 import { X, Y } from 'obj.Layout'
 
-const imageDirectory = 'AsSeenIn/'
+const imageDirectory = '/assets/images/AsSeenIn/'
 
 const logos = [
   {
@@ -31,7 +31,7 @@ const logos = [
   },
   {
     filename: 'product_hunt.png',
-    height: 35
+    height: 45
   }
 ]
 

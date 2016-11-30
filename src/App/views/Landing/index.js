@@ -22,51 +22,110 @@ const WW = ({children, maxWidth = 1000}) =>
       margin: '0 auto',
       width: '100%',
       maxWidth: `${maxWidth}px`,
-      padding: '20px 32px',
-      borderBottom: '1px solid #000'
+      padding: '0 32px'
     }
   }}>{children}</div>
 
 export default () =>
   <div>
-    <WW>
-      <Nav />
-    </WW>
-    <WW>
-      <Main1 />
-    </WW>
+    <div {...{
+      style: {
+        padding: '24px'
+      }
+    }}>
+      <WW>
+        <Nav />
+      </WW>
+    </div>
+    <div {...{
+      style: {
+        padding: '64px 0'
+      }
+    }}>
+      <WW>
+        <Main1 />
+      </WW>
+    </div>
     <WW>
       <AsSeenIn />
     </WW>
-    <WW>
-      <Main2 />
-    </WW>
-    <WW>
-      <Steps />
-    </WW>
     <div {...{
       style: {
+        backgroundColor: '#FDFDFD',
+        padding: '64px 0'
+      }
+    }}>
+      <WW>
+        <Main2 />
+      </WW>
+    </div>
+    <div {...{
+      style: {
+        padding: '64px 0'
+      }
+    }}>
+      <WW>
+        <Steps />
+      </WW>
+    </div>
+    <div {...{
+      style: {
+        position: 'relative',
         backgroundColor: colors.slate[2],
-        backgroundImage: `url('/Video/videopattern.svg')`,
-        backgroundSize: 'cover'
+        backgroundImage: `url('/assets/images/Video/videopattern.svg')`,
+        backgroundSize: 'cover',
+        padding: '64px 0'
       }
     }}>
       <WW>
         <Video />
       </WW>
     </div>
-    <WW>
-      <Packages />
-    </WW>
-    <WW>
-      <Testimonials />
-    </WW>
-    <WW>
-      <Gift />
-    </WW>
-    <WW>
-      <Questions />
-    </WW>
+    <div {...{
+      style: {
+        width: '100%',
+        backgroundImage: `url('/assets/images/Packages/packagetree.svg'), url('/assets/images/Packages/packagebook.svg')`,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: '150px',
+        backgroundPosition: '0px 100px, 100% 100%',
+        padding: '64px 0'
+      }
+    }}>
+      <WW>
+        <Packages />
+      </WW>
+    </div>
+    <div {...{
+      style: {
+        position: 'relative',
+        backgroundColor: '#F9F9FA',
+        padding: '64px 0'
+      }
+    }}>
+      <WW>
+        <Testimonials />
+      </WW>
+    </div>
+    <div {...{
+      style: {
+        padding: '64px 0'
+      }
+    }}>
+      <WW>
+        <Gift />
+      </WW>
+    </div>
+    <div {...{
+      style: {
+        position: 'relative',
+        backgroundColor: colors.slate[2],
+        padding: '64px 0'
+      }
+    }}>
+      <WW>
+        <Questions />
+      </WW>
+    </div>
   </div>
 
 const style = StyleSheet.create({

@@ -18,7 +18,9 @@ const UI = () =>
         copy: 'Why choose Trace?',
         level: 2,
         style: {
-          color: 'white'
+          marginBottom: '32px',
+          color: 'white',
+          textAlign: 'center'
         }
       }} />
       <iframe {...{

@@ -1,7 +1,10 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 import { X } from 'obj.Layout'
 import H from 'atm.Header'
+
+import { colors } from 'App/style/settings'
 
 import bulletsSvg from './bullets.svg'
 
@@ -33,13 +36,13 @@ const bullets = packagesIncludeData.map(({icon, text}, i) =>
   </div>
 )
 
-export default () =>
-  <X>
+const UI = ({viewSize}) =>
+  <X x>
     <X x>
       <X>
         <div>
           <img {...{
-            src: '/Main2/bookmark.svg',
+            src: '/assets/images/Main2/bookmark.svg',
             style: {
               width: '30px',
               marginRight: '16px'
@@ -51,16 +54,39 @@ export default () =>
             copy: 'Everyone has a story. Find yours.',
             level: 2
           }} />
-          <div>{`Each family is unique, a story waiting to be told. We'll provide you with the people and history you never knew without tedious research. With Trace, learning about you has never been easier.`}</div>
-          <div>Trace packages include:</div>
-          <img src='/Main2/bullets.svg' />
+          <div style={{
+            marginTop: '16px'
+          }}>{`Each family is unique, a story waiting to be told. We'll provide you with the people and history you never knew without tedious research. With Trace, learning about you has never been easier.`}</div>
+          <div style={{ marginTop: '32px' }}>
+            <div {...{
+              style: {
+                marginBottom: '8px',
+                fontWeight: 'bold',
+                fontSize: '1.2em',
+                color: colors.slate[1]
+              }
+            }}>Trace packages include:</div>
+            <img src='/assets/images/Main2/bullets.svg' />
+          </div>
         </div>
       </X>
     </X>
-    <div>
-      <img {...{
-        src: '/Main2/worldoftrace.svg',
-        width: '400px'
-      }} />
-    </div>
+    {viewSize !== 'mobile' &&
+      <div style={{marginLeft: '32px'}}>
+        <img {...{
+          src: '/assets/images/Main2/worldoftrace.svg',
+          width: viewSize === 'narrow' ? '200px' : '400px'
+        }} />
+      </div>
+    }
   </X>
+
+const mapStateToProps = ({ viewState: { viewportSize } }) => ({
+  viewSize: viewportSize.width < 700
+    ? 'mobile'
+    : viewportSize.width < 900
+      ? 'narrow'
+      : 'full'
+})
+
+export default connect(mapStateToProps)(UI)

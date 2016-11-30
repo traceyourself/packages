@@ -1,20 +1,67 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
-import { X } from 'obj.Layout'
+import { X, Y } from 'obj.Layout'
+import Btn from 'atm.Btn'
+import H from 'atm.Header'
 
-export default () =>
-  <X x>
-    <div>
-      <h2>{`Give the gift of family`}</h2>
-      <div>{`Each family is unique, a story waiting to be told. We'll provide you the people and history you never knew.`}</div>
-      <button>Give Trace as a Gift</button>
-    </div>
+const UI = ({viewSize}) => {
+  const imageNode =
     <div>
       <img {...{
-        src: '/Gift/gift.svg',
+        src: '/assets/images/Gift/gift.svg',
         style: {
-          width: '300px'
+          width: viewSize === 'mobile' ? '100px' : '300px'
         }
       }} />
     </div>
-  </X>
+
+  const textNodes = [
+    <H {...{
+      copy: 'Give the gift of family',
+      level: 2,
+      style: viewSize === 'mobile' && {
+        textAlign: 'center',
+        fontSize: '1.2em'
+      }
+    }}/>,
+    <div {...{
+      style: {
+        margin: '16px 0 32px 0'
+      }
+    }}>{`Each family is unique, a story waiting to be told. We'll provide you the people and history you never knew.`}</div>,
+    <Btn {...{
+      copy: 'Give Trace as a Gift'
+    }}/>
+  ]
+
+  return viewSize === 'mobile'
+    ? (
+      <Y y>
+        <div style={{marginBottom: '16px'}}>
+          {imageNode}
+        </div>
+        <Y y>
+          {textNodes}
+        </Y>
+      </Y>
+    )
+    : (
+      <X x justify='space-between'>
+        <div style={{maxWidth: '500px'}}>
+          {textNodes}
+        </div>
+        {imageNode}
+      </X>
+    )
+}
+
+const mapStateToProps = ({ viewState: { viewportSize } }) => ({
+  viewSize: viewportSize.width < 700
+    ? 'mobile'
+    : viewportSize.width < 900
+      ? 'narrow'
+      : 'full'
+})
+
+export default connect(mapStateToProps)(UI)

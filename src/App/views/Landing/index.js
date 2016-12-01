@@ -32,13 +32,21 @@ export default () =>
   <div>
     <div {...{
       style: {
-        padding: '24px 0'
+        zIndex: '2',
+        position: 'fixed', top: '0', right: '0', bottom: '0', width: '100%',
+        background: 'white',
+        height: '80px'
       }
     }}>
       <WW>
         <Nav />
       </WW>
     </div>
+    <div {...{
+      style: {
+        height: '80px'
+      }
+    }} />
     <div {...{
       style: {
         padding: '64px 0'
@@ -68,7 +76,7 @@ export default () =>
         backgroundRepeat: 'no-repeat',
         backgroundPosition: '-200px center',
         backgroundSize: '700px',
-        padding: '64px 0'
+        padding: '80px 0'
       }
     }}>
       <WW>
@@ -77,7 +85,6 @@ export default () =>
     </div>
     <div {...{
       style: {
-        position: 'relative',
         backgroundColor: colors.slate[2],
         backgroundImage: `url('/assets/images/Video/videopattern.svg')`,
         backgroundSize: '300px',
@@ -96,7 +103,7 @@ export default () =>
         backgroundRepeat: 'no-repeat',
         backgroundSize: '150px',
         backgroundPosition: '0px 100px, 100% 100%',
-        padding: '64px 0'
+        padding: '80px 0'
       }
     }}>
       <WW>
@@ -132,7 +139,7 @@ export default () =>
         backgroundRepeat: 'no-repeat',
         backgroundPosition: '-200px top',
         backgroundSize: '800px',
-        padding: '64px 0'
+        padding: '90px 0'
       }
     }}>
       <WW>

@@ -5,6 +5,7 @@ import { colors } from 'App/style/settings'
 
 import { X, Y } from 'obj.Layout'
 import Btn from 'atm.Btn'
+import { Links } from 'config.definitions'
 
 export default ({icon, name, subtitle, checklist, price, link, disabled}) =>
   <div {...{
@@ -106,17 +107,12 @@ export default ({icon, name, subtitle, checklist, price, link, disabled}) =>
           }} />
         )
         : (
-          <a {...{
-            href: link,
-            className: 'typeform-share link',
-            'data-mode': '2',
-            target: '_blank'
-          }}>
+          <Links.BuyPackage>
             <Btn {...{
               copy: 'Get This Package',
               disabled
             }} />
-          </a>
+          </Links.BuyPackage>
         )
       }
     </Y>

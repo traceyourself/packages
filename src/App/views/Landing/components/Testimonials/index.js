@@ -12,14 +12,12 @@ export default () =>
     wrapAround: true,
     decorators: []
   }}>
-    {testimonials.map(({person, package: pkg, quote}, i) =>
+    {testimonials.map(({person, quote}, i) =>
       <div key={i}>
         <Testimonial {...{
           name: person.name,
           avatar: person.avatar,
-          subname: person.title,
-          subtitle: pkg.name,
-          icon: pkg.icon,
+          subname: person.location,
           quote,
           key: i
         }} />

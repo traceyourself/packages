@@ -8,9 +8,9 @@ import { contactPhone } from 'config.definitions'
 import { X } from 'obj.Layout'
 
 const links = [
-  { copy: 'How It Works', link: '/#HowItWorks' },
-  { copy: 'Pricing', link: '/#Pricing' },
-  { copy: 'FAQ', link: '/#FAQ' },
+  { copy: 'How It Works', link: '#HowItWorks' },
+  { copy: 'Pricing', link: '#Pricing' },
+  { copy: 'FAQ', link: '#FAQ' },
   { copy: contactPhone, link: `tel:${contactPhone}` }
 ]
 

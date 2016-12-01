@@ -32,7 +32,7 @@ const UI = ({viewSize}) =>
       }}>{`You belong to a family narrative that is bigger than yourself, it's time to find out what that is.`}</div>
       <div>
         <a href={links.buyPackage}>
-          <Btn copy='Sign Up' />
+          <Btn copy='Start discovering' />
         </a>
       </div>
     </div>

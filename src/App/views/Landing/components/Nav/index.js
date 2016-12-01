@@ -11,7 +11,21 @@ const links = [
   { copy: 'How It Works', link: '#HowItWorks' },
   { copy: 'Pricing', link: '#Pricing' },
   { copy: 'FAQ', link: '#FAQ' },
-  { copy: contactPhone, link: `tel:${contactPhone}` }
+  {
+    copy:
+      <X x>
+        <img {...{
+          src: '/assets/images/Nav/phone2.svg',
+          style: {
+            margin: '0 4px 0 0',
+            width: '13px',
+            height: '13px'
+          }
+        }}/>
+        {contactPhone}
+      </X>,
+    link: `tel:${contactPhone}`
+  }
 ]
 
 const breakpoints = {

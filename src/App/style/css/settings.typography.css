@@ -2,6 +2,17 @@
     #TYPOGRAPHY_SETTINGS
 \*------------------------------------*/
 
+@font-face {
+  font-family: Museo Sans;
+  src: url('/assets/fonts/MuseoSans/MuseoSans-100.otf');
+}
+
+@font-face {
+  font-family: Museo Sans;
+  font-weight: bold;
+  src: url('/assets/fonts/MuseoSans/MuseoSans-900.otf');
+}
+
 :root {
 --extra-light:           100;
 --light:                 300;
@@ -10,7 +21,7 @@
 --extra-bold:            900;
 
 --mono-font-family:      'monospace';
---museo-font-family:     'Noto Sans', sans-serif;
+--museo-font-family:     'Museo Sans', 'Noto Sans', sans-serif;
 
 --base-font-family:      var(--museo-font-family);
 --base-font-weight:      var(--light);

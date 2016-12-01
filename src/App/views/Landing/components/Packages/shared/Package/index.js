@@ -61,7 +61,7 @@ export default ({icon, name, subtitle, checklist, price, link, disabled}) =>
       </div>
       <ul {...{
         style: {
-          height: '220px'
+          height: '200px'
         }
       }}>
         {checklist.map((item, i) =>
@@ -86,6 +86,13 @@ export default ({icon, name, subtitle, checklist, price, link, disabled}) =>
           </li>
         )}
       </ul>
+      <img {...{
+        src: '/assets/images/Packages/not199.png',
+        style: {
+          width: '60px',
+          visibility: name === 'Origins Package' ? 'visible' : 'hidden'
+        }
+      }}/>
       <div style={{
         marginBottom: '8px',
         fontSize: '1.5em',

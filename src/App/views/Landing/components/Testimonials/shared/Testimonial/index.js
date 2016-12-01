@@ -35,7 +35,7 @@ export default ({avatar, name, subname, subtitle, icon, quote}) =>
           }}>{subtitle}</div>
         </X>
       </div>
-      <div>{quote}</div>
+      <div>{'"'}{quote}{'"'}</div>
     </div>
   </X>
 

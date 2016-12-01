@@ -4,8 +4,18 @@ import { colors } from 'App/style/settings'
 
 export const contactPhone = '801-717-9054'
 
-export const links = {
+const urls = {
   buyPackage: 'https://ancestorcloud.typeform.com/to/FPiX8R'
+}
+
+export const Links = {
+  BuyPackage: ({children}) =>
+    <a {...{
+      href: 'https://ancestorcloud.typeform.com/to/FPiX8R',
+      className: 'typeform-share link',
+      'data-mode': '2',
+      target: '_blank'
+    }}>{children}</a>
 }
 
 export const packages = {
@@ -20,7 +30,7 @@ export const packages = {
       'Pictures, records, and documents'
     ],
     price: 149,
-    link: links.buyPackage
+    link: urls.buyPackage
   },
   lineage: {
     icon: '/assets/images/lineageBook.svg',
@@ -42,23 +52,23 @@ const avatarDirectory = '/assets/images/Testimonials/'
 
 const people = {
   fred: {
-    name: 'Fred R.',
-    title: 'Actress',
+    name: 'Fred Robson',
+    location: 'Ontario',
     avatar: `${avatarDirectory}fred.jpg`
   },
   anna: {
-    name: 'Anna C.',
-    title: 'Actress',
+    name: 'Anna Chan',
+    location: 'California',
     avatar: `${avatarDirectory}anna.jpg`
   },
   jordan: {
-    name: 'Jordan S.',
-    title: 'Just some guy',
+    name: 'Jordan Scoggins',
+    location: 'New York',
     avatar: `${avatarDirectory}jordan.jpg`
   },
   rebecca: {
-    name: 'Rebecca W.',
-    title: 'Actress',
+    name: 'Rebecca Waldorf',
+    location: 'Florida',
     avatar: `${avatarDirectory}rebecca.jpg`
   }
 }

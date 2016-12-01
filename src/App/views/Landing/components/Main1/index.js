@@ -5,7 +5,7 @@ import { X } from 'obj.Layout'
 import H from 'atm.Header'
 import Btn from 'atm.Btn'
 
-import { links } from 'config.definitions'
+import { Links } from 'config.definitions'
 
 const UI = ({viewSize}) =>
   <X x>
@@ -31,9 +31,9 @@ const UI = ({viewSize}) =>
         }
       }}>{`You belong to a family narrative that is bigger than yourself, it's time to find out what that is.`}</div>
       <div>
-        <a href={links.buyPackage}>
+        <Links.BuyPackage>
           <Btn copy='Start discovering' />
-        </a>
+        </Links.BuyPackage>
       </div>
     </div>
   </X>

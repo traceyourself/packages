@@ -5,7 +5,7 @@ import { X, Y } from 'obj.Layout'
 import Btn from 'atm.Btn'
 import H from 'atm.Header'
 
-import { links } from 'config.definitions'
+import { Links } from 'config.definitions'
 
 const UI = ({viewSize}) => {
   const imageNode =
@@ -32,14 +32,14 @@ const UI = ({viewSize}) => {
         margin: '16px 0 32px 0'
       }
     }}>{`Unite with your loved ones as you share the stories and memories that make them who they are! They can discover more about distant relatives, their origins, the stories, and details about their family history.`}</div>,
-    <a href={links.buyPackage}>
+    <Links.BuyPackage>
       <Btn {...{
         copy: 'Give Trace as a Gift',
         style: {
           backgroundColor: '#D65C34'
         }
       }}/>
-    </a>
+    </Links.BuyPackage>
   ]
 
   return viewSize === 'mobile'

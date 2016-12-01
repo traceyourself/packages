@@ -14,15 +14,25 @@ const links = [
   { copy: contactPhone, link: `tel:${contactPhone}` }
 ]
 
-const Nav = ({narrowView = false}) =>
+const breakpoints = {
+  mobile: 400,
+  narrow: 600
+}
+
+const Nav = ({viewWidth}) =>
   <X x spaced style={{
-    width: '100%'
+    width: '100%',
+    height: '100%'
   }}>
     <a href='/'>
       <img {...{
         src: '/assets/images/Nav/wordmark-blue.svg',
         style: {
-          height: narrowView ? '16px' : '24px'
+          height: viewWidth < breakpoints.mobile
+            ? '13px'
+            : viewWidth < breakpoints.narrow
+              ? '16px'
+              : '24px'
         }
       }} />
     </a>
@@ -32,10 +42,10 @@ const Nav = ({narrowView = false}) =>
           key: i,
           href: link,
           style: {
-            margin: narrowView
-              ? '0 4px'
-              : '0 16px',
-            fontSize: '14px',
+            marginLeft: viewWidth < breakpoints.narrow
+              ? '8px'
+              : '32px',
+            fontSize: viewWidth < breakpoints.narrow ? '11px' :'14px',
             fontWeight: 'bold',
             color: colors.slate[2],
             textDecoration: 'none',
@@ -47,7 +57,7 @@ const Nav = ({narrowView = false}) =>
   </X>
 
 const mapStateToProps = ({ viewState: { viewportSize } }) => ({
-  narrowView: viewportSize.width < 500
+  viewWidth: viewportSize.width
 })
 
 export default connect(mapStateToProps)(Nav)

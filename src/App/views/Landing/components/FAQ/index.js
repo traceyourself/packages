@@ -53,12 +53,12 @@ const UI = ({verticalLayout}) =>
       ? <div>{questions.map(mapQuestionToQAndA)}</div>
       : (
         <X>
-          <Y align='justify' {...{
+          <Y {...{
             style: {
               width: '50%'
             }
           }}>{questions1.map(mapQuestionToQAndA)}</Y>
-          <Y align='justify' {...{
+          <Y {...{
             style: {
               marginLeft: spacing,
               width: '50%'

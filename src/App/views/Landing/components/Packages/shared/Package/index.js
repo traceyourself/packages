@@ -98,9 +98,27 @@ export default ({icon, name, subtitle, checklist, price, link, disabled}) =>
         fontSize: '1.5em',
         fontWeight: 'bold'
       }}>${price}</div>
-      <a href={link}>
-        <Btn {...{ copy: 'Get This Package', disabled }} />
-      </a>
+      {disabled
+        ? (
+          <Btn {...{
+            copy: 'Get This Package',
+            disabled
+          }} />
+        )
+        : (
+          <a {...{
+            href: link,
+            className: 'typeform-share link',
+            'data-mode': '2',
+            target: '_blank'
+          }}>
+            <Btn {...{
+              copy: 'Get This Package',
+              disabled
+            }} />
+          </a>
+        )
+      }
     </Y>
   </div>
 

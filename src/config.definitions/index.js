@@ -62,18 +62,6 @@ const people = {
     avatar: `${avatarDirectory}rebecca.jpg`
   }
 }
-// "I've been trying to get this information for years. AncestorCloud made it all possible. Thanks so much.
-// — Fred R.
-// "Trace has given me a bigger sense of family."
-// — Anna C.
-// "The trip exceeded my expectations. I would do it again in a heartbeat, I’m hoping to do it in another country."
-// — Jordan S.
-// "Now I feel like I have family. I'm not a researcher or family historian, but I'm understanding the importance of learning your family history."
-// — Rebecca W.
-
-//Anna has origins - and Rebecca has Lineage and Fred has lineage
-
-
 
 export const testimonials = [
   {

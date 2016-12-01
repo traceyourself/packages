@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "aphrodite": "1.1.0",
+    "nuka-carousel": "^2.0.3",
     "react": "15.4.0",
     "react-dom": "15.4.0",
     "react-redux": "4.4.6",

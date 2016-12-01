@@ -5,7 +5,7 @@ import { colors } from 'App/style/settings'
 export const contactPhone = '801-717-9054'
 
 export const links = {
-  buyPackage: 'https://ancestorcloud.typeform.com/to/bPRs0k'
+  buyPackage: 'https://ancestorcloud.typeform.com/to/FPiX8R'
 }
 
 export const packages = {

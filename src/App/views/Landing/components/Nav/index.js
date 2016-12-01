@@ -1,23 +1,28 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
-import { StyleSheet, css } from 'aphrodite'
 import { colors } from 'App/style/settings'
+
+import { contactPhone } from 'config.definitions'
 
 import { X } from 'obj.Layout'
 
 const links = [
   { copy: 'How It Works', link: '/#HowItWorks' },
   { copy: 'Pricing', link: '/#Pricing' },
-  { copy: 'FAQ', link: '/#FAQ' }
+  { copy: 'FAQ', link: '/#FAQ' },
+  { copy: contactPhone, link: `tel:${contactPhone}` }
 ]
 
-const Nav = () =>
-  <X x spaced className={css(styles.container)}>
+const Nav = ({narrowView = false}) =>
+  <X x spaced style={{
+    width: '100%'
+  }}>
     <a href='/'>
       <img {...{
         src: '/assets/images/Nav/wordmark-blue.svg',
         style: {
-          height: '24px'
+          height: narrowView ? '16px' : '24px'
         }
       }} />
     </a>
@@ -26,23 +31,23 @@ const Nav = () =>
         <a {...{
           key: i,
           href: link,
-          className: css(styles.link)
+          style: {
+            margin: narrowView
+              ? '0 4px'
+              : '0 16px',
+            fontSize: '14px',
+            fontWeight: 'bold',
+            color: colors.slate[2],
+            textDecoration: 'none',
+            textAlign: 'center'
+          }
         }}>{copy}</a>
       )}
     </X>
   </X>
 
-export default Nav
-
-const styles = StyleSheet.create({
-  container: {
-    width: '100%'
-  },
-
-  link: {
-    margin: '0 16px',
-    fontWeight: 'bold',
-    color: colors.slate[2],
-    textDecoration: 'none'
-  }
+const mapStateToProps = ({ viewState: { viewportSize } }) => ({
+  narrowView: viewportSize.width < 500
 })
+
+export default connect(mapStateToProps)(Nav)

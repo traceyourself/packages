@@ -10,8 +10,8 @@ import { questions } from 'config.definitions'
 
 const spacing = '90px'
 
-const questions1 = [ questions[0], questions[2], questions[4], questions[6] ]
-const questions2 = [ questions[1], questions[3], questions[5], questions[7] ]
+const questions1 = [ questions[0], questions[2], questions[4], questions[5] ]
+const questions2 = [ questions[1], questions[3], questions[6], questions[7] ]
 
 const QAndA = ({q, a}) =>
   <div style={{color: '#DCDEE0'}}>

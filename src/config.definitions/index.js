@@ -38,29 +38,51 @@ export const packages = {
   }
 }
 
+const avatarDirectory = '/assets/images/Testimonials/'
+
 const people = {
-  joan: {
-    name: 'Joan Rivers',
+  fred: {
+    name: 'Fred R.',
     title: 'Actress',
-    avatar: 'http://images.clipartpanda.com/face-clipart-dc8xrnRce.jpeg'
+    avatar: `${avatarDirectory}fred.jpg`
   },
-  melissa: {
-    name: 'Melissa Melissa',
-    title: 'Cool Chick',
-    avatar: 'http://classroomclipart.com/images/gallery/Clipart/Faces/TN_asian_girl_face.jpg'
+  anna: {
+    name: 'Anna C.',
+    title: 'Actress',
+    avatar: `${avatarDirectory}anna.jpg`
+  },
+  jordan: {
+    name: 'Jordan S.',
+    title: 'Just some guy',
+    avatar: `${avatarDirectory}jordan.jpg`
+  },
+  rebecca: {
+    name: 'Rebecca W.',
+    title: 'Actress',
+    avatar: `${avatarDirectory}rebecca.jpg`
   }
 }
 
 export const testimonials = [
   {
-    person: people.joan,
-    package: packages.origins,
-    quote: `This is an awesome testimonial about Trace. Cupiditate commodi quo est debitis sit exercitationem et eius. Nihil facilis doloremque vel quia consequatur similique tenetur fugit. Eum autem nihil ut. Eum voluptas nesciunt voluptatem corrupti aut. Sapiente et sint expedita dolor qui voluptate. Tempora incidunt aliquam praesentium consectetur.`
+    person: people.fred,
+    package: packages.lineage,
+    quote: `I've been trying to get this information for years. AncestorCloud made it all possible. Thanks so much.`
   },
   {
-    person: people.melissa,
+    person: people.anna,
+    package: packages.origins,
+    quote: `Trace has given me a bigger sense of family.`
+  },
+  {
+    person: people.jordan,
+    package: packages.origins,
+    quote: `The trip exceeded my expectations. I would do it again in a heartbeat, I’m hoping to do it in another country.`
+  },
+  {
+    person: people.rebecca,
     package: packages.lineage,
-    quote: `This is an awesome testimonial about Trace. Cupiditate commodi quo est debitis sit exercitationem et eius. Nihil facilis doloremque vel quia consequatur similique tenetur fugit. Eum autem nihil ut. Eum voluptas nesciunt voluptatem corrupti aut. Sapiente et sint expedita dolor qui voluptate. Tempora incidunt aliquam praesentium consectetur.`
+    quote: `Now I feel like I have family. I'm not a researcher or family historian, but I'm understanding the importance of learning your family history.`
   }
 ]
 

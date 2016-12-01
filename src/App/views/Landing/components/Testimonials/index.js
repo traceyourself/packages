@@ -7,7 +7,9 @@ import Testimonial from './shared/Testimonial'
 export default () =>
   <div>
     {testimonials.map(({person, package: pkg, quote}, i) =>
-      <div key={i}>
+      <div key={i} style={{
+        marginTop: i > 0 && '64px'
+      }}>
         <Testimonial {...{
           name: person.name,
           avatar: person.avatar,

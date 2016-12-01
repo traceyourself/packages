@@ -32,7 +32,7 @@ export default () =>
   <div>
     <div {...{
       style: {
-        padding: '24px'
+        padding: '24px 0'
       }
     }}>
       <WW>

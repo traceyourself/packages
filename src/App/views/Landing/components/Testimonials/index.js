@@ -15,7 +15,7 @@ export default () =>
   }}>
     {testimonials.map(({person, quote}, i) =>
       <div key={i}>
-        <X x y style={{minHeight: '200px'}}>
+        <X x y style={{minHeight: '240px'}}>
           <Testimonial {...{
             name: person.name,
             avatar: person.avatar,

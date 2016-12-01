@@ -27,7 +27,7 @@ const TestimonialUI = ({
       }
     }}>{'"'}{quote}{'"'}</div>
 
-  const avatarSize = verticalLayout ? '30px' : '90px'
+  const avatarSize = verticalLayout ? '50px' : '90px'
   const avatarNode =
     <img {...{
       src: avatar,

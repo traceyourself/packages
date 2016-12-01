@@ -11,7 +11,7 @@ import { Link } from 'react-scroll'
 
 const links = [
   { copy: 'How It Works', to: 'HowItWorks' },
-  { copy: 'Pricing', to: 'Pricing', offset: -80 },
+  { copy: 'Pricing', to: 'Pricing' },
   { copy: 'FAQ', to: 'FAQ' }
 ]
 
@@ -51,7 +51,7 @@ const Nav = ({viewWidth}) => {
         }} />
       </a>
       <X>
-        {links.map(({copy, to, offset}, i) =>
+        {links.map(({copy, to}, i) =>
           <Link {...{
             key: i,
             to,
@@ -59,7 +59,7 @@ const Nav = ({viewWidth}) => {
             activeClass: css(styles['link-active']),
             spy: true,
             smooth: true,
-            offset: offset || -80,
+            offset: -80,
             duration: 500,
             onSetActive: () => {}
           }}>{copy}</Link>

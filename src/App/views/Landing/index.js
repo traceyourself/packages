@@ -76,7 +76,7 @@ export default () =>
         backgroundRepeat: 'no-repeat',
         backgroundPosition: '-200px center',
         backgroundSize: '700px',
-        padding: '64px 0'
+        padding: '80px 0'
       }
     }}>
       <WW>
@@ -103,7 +103,7 @@ export default () =>
         backgroundRepeat: 'no-repeat',
         backgroundSize: '150px',
         backgroundPosition: '0px 100px, 100% 100%',
-        padding: '64px 0'
+        padding: '80px 0'
       }
     }}>
       <WW>
@@ -139,7 +139,7 @@ export default () =>
         backgroundRepeat: 'no-repeat',
         backgroundPosition: '-200px top',
         backgroundSize: '800px',
-        padding: '64px 0'
+        padding: '90px 0'
       }
     }}>
       <WW>

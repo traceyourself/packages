@@ -6,7 +6,7 @@ import { colors } from 'App/style/settings'
 import { X, Y } from 'obj.Layout'
 import Btn from 'atm.Btn'
 
-export default ({icon, name, subtitle, checklist, price, disabled}) =>
+export default ({icon, name, subtitle, checklist, price, link, disabled}) =>
   <div {...{
     style: {
       position: 'relative',
@@ -91,7 +91,9 @@ export default ({icon, name, subtitle, checklist, price, disabled}) =>
         fontSize: '1.5em',
         fontWeight: 'bold'
       }}>${price}</div>
-      <Btn {...{ copy: 'Get This Package', disabled }} />
+      <a href={link}>
+        <Btn {...{ copy: 'Get This Package', disabled }} />
+      </a>
     </Y>
   </div>
 

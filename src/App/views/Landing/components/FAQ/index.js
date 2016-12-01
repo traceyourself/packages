@@ -10,8 +10,8 @@ import { questions } from 'config.definitions'
 
 const spacing = '90px'
 
-const questions1 = [ questions[0], questions[1], questions[2] ]
-const questions2 = [ questions[3], questions[4], questions[5] ]
+const questions1 = [ questions[0], questions[2], questions[4], questions[6] ]
+const questions2 = [ questions[1], questions[3], questions[5], questions[7] ]
 
 const QAndA = ({q, a}) =>
   <div style={{color: '#DCDEE0'}}>
@@ -37,7 +37,11 @@ const mapQuestionToQAndA = ({q, a}, i) =>
   </div>
 
 const UI = ({verticalLayout}) =>
-  <div>
+  <div {...{
+    style: {
+      position: 'relative'
+    }
+  }}>
     <H {...{
       copy: 'Still have questions?',
       level: 2,
@@ -49,12 +53,17 @@ const UI = ({verticalLayout}) =>
       ? <div>{questions.map(mapQuestionToQAndA)}</div>
       : (
         <X>
-          <div>{questions1.map(mapQuestionToQAndA)}</div>
-          <div {...{
+          <Y align='justify' {...{
             style: {
-              marginLeft: spacing
+              width: '50%'
             }
-          }}>{questions2.map(mapQuestionToQAndA)}</div>
+          }}>{questions1.map(mapQuestionToQAndA)}</Y>
+          <Y align='justify' {...{
+            style: {
+              marginLeft: spacing,
+              width: '50%'
+            }
+          }}>{questions2.map(mapQuestionToQAndA)}</Y>
         </X>
       )
     }

@@ -14,7 +14,7 @@ import Video from './components/Video'
 import Packages from './components/Packages'
 import Testimonials from './components/Testimonials'
 import Gift from './components/Gift'
-import Questions from './components/Questions'
+import FAQ from './components/FAQ'
 import Links from './components/Links'
 import Footer from './components/Footer'
 
@@ -62,6 +62,7 @@ export default () =>
       </WW>
     </div>
     <div {...{
+      id: 'HowItWorks',
       style: {
         backgroundImage: `url('/assets/images/HowItWorks/howitworksbackground.svg')`,
         backgroundRepeat: 'no-repeat',
@@ -79,7 +80,7 @@ export default () =>
         position: 'relative',
         backgroundColor: colors.slate[2],
         backgroundImage: `url('/assets/images/Video/videopattern.svg')`,
-        backgroundSize: 'cover',
+        backgroundSize: '300px',
         padding: '64px 0'
       }
     }}>
@@ -88,6 +89,7 @@ export default () =>
       </WW>
     </div>
     <div {...{
+      id: 'Pricing',
       style: {
         width: '100%',
         backgroundImage: `url('/assets/images/Packages/packagetree.svg'), url('/assets/images/Packages/packagebook.svg')`,
@@ -122,23 +124,19 @@ export default () =>
       </WW>
     </div>
     <div {...{
+      id: 'FAQ',
       style: {
         position: 'relative',
         backgroundColor: colors.slate[2],
+        backgroundImage: `url('/assets/images/FAQ/rainbackground.svg')`,
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: '-200px top',
+        backgroundSize: '800px',
         padding: '64px 0'
       }
     }}>
       <WW>
-        <Questions />
-      </WW>
-    </div>
-    <div {...{
-      style: {
-        padding: '128px 0 60px'
-      }
-    }}>
-      <WW>
-        <Links />
+        <FAQ />
       </WW>
     </div>
     <div {...{

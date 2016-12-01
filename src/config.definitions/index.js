@@ -1,3 +1,9 @@
+import React from 'react'
+
+import { colors } from 'App/style/settings'
+
+export const contactPhone = '801-717-9054'
+
 export const links = {
   buyPackage: 'https://ancestorcloud.typeform.com/to/bPRs0k'
 }
@@ -89,6 +95,16 @@ export const questions = [
   },
   {
     q: `What if I have other questions?`,
-    a: `We are happy to talk with you about any specific questions you have. Just give us a call at 801-717-9054, or send us a message by clicking on the blue icon in the lower right corner of the screen.`
+    a:
+      <div>{`We are happy to talk with you about any specific questions you have. Just give us a call at `}
+      <a {...{
+        href: `tel:${contactPhone}`,
+        style: {
+          color: colors.heather[0],
+          textDecoration: 'underline',
+          whiteSpace: 'nowrap'
+        }
+      }}>{contactPhone}</a>
+      {`, or send us a message by clicking on the blue icon in the lower right corner of the screen.`}</div>
   }
 ]

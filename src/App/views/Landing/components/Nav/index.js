@@ -6,22 +6,21 @@ import { colors } from 'App/style/settings'
 import { X } from 'obj.Layout'
 
 const links = [
-  { copy: 'Get Help', link: '/' },
-  { copy: 'Community', link: '/' },
-  { copy: 'About', link: '/' },
-  { copy: 'Login', link: '/' }
+  { copy: 'How It Works', link: '/#HowItWorks' },
+  { copy: 'Pricing', link: '/#Pricing' },
+  { copy: 'FAQ', link: '/#FAQ' }
 ]
 
 const Nav = () =>
   <X x spaced className={css(styles.container)}>
-    <div>
+    <a href='/'>
       <img {...{
         src: '/assets/images/Nav/wordmark-blue.svg',
         style: {
           height: '24px'
         }
       }} />
-    </div>
+    </a>
     <X>
       {links.map(({copy, link}, i) =>
         <a {...{

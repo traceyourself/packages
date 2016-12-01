@@ -5,6 +5,8 @@ import { X } from 'obj.Layout'
 import H from 'atm.Header'
 import Btn from 'atm.Btn'
 
+import { links } from 'config.definitions'
+
 const UI = ({viewSize}) =>
   <X x>
     {viewSize !== 'mobile' &&
@@ -29,7 +31,9 @@ const UI = ({viewSize}) =>
         }
       }}>{`You belong to a family narrative that is bigger than yourself, it's time to find out what that is.`}</div>
       <div>
-        <Btn copy='Sign Up' />
+        <a href={links.buyPackage}>
+          <Btn copy='Sign Up' />
+        </a>
       </div>
     </div>
   </X>

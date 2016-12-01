@@ -17,21 +17,21 @@ const stepsData = [
     number: `${imagesDirectory}number1.svg`,
     icon: `${imagesDirectory}howitworksplaceholder.svg`,
     title: `Select your research package`,
-    content: `Each family is unique, a story waiting to be told. We'll provide you with the people and history you never knew without tedious research. With Trace, learning about you has never been easier.`
+    content: `Our experts will provide the research to help you discover the most of your family story. Choose between our Origins Package or the Lineage Package.`
   },
   {
     screenshot: `${imagesDirectory}step2.svg`,
     number: `${imagesDirectory}number2.svg`,
     icon: `${imagesDirectory}howitworksplaceholder.svg`,
     title: `Fill out a short survey about your family`,
-    content: `Each family is unique, a story waiting to be told. We'll provide you with the people and history you never knew without tedious research. With Trace, learning about you has never been easier.`
+    content: `Help us help you! Fill out a short survey about your family so you can have the most accurate information.`
   },
   {
     screenshot: `${imagesDirectory}step3.svg`,
     number: `${imagesDirectory}number3.svg`,
     icon: `${imagesDirectory}howitworksplaceholder.svg`,
     title: `Receive results from your research experts`,
-    content: `Each family is unique, a story waiting to be told. We'll provide you with the people and history you never knew without tedious research. With Trace, learning about you has never been easier.`
+    content: `Be prepared to discover treasured memories and stories from your own family line! We guarantee the very best from our experts, and if you're not completely satisfied, just reach out and we'll give you your money back!`
   }
 ]
 

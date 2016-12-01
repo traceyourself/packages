@@ -38,7 +38,7 @@ module.exports = {
             '<meta charset="utf-8"/>',
             '<meta name="viewport" content="width=device-width, initial-scale=1">',
             '<link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700" rel="stylesheet">',
-            '<title>' + config.title + '</title>',
+            '<title>Trace: Yourself, Discovered</title>',
             '<link rel="icon" href="' + config.favicon + '" type="image/x-icon" />',
             '<link href="/' + data.css + '" rel="stylesheet" type="text/css" />',
 

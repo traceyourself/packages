@@ -15,7 +15,7 @@ const maxHeight = maxWidth / ratio
 const paddingFromViewport = 20
 
 const UI = () =>
-  <div className={css(styles.wrapper)}>
+  <div>
     <Y y>
       <H {...{
         copy: 'Why choose Trace?',
@@ -44,17 +44,4 @@ const UI = () =>
     </Y>
   </div>
 
-export default React.createClass({
-  updateDimensions () {
-    console.log('updated dimensions')
-  },
-
-  render () {
-    return <UI />
-  }
-})
-
-const styles = StyleSheet.create({
-  wrapper: {
-  }
-})
+export default UI

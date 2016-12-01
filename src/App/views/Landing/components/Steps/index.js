@@ -30,7 +30,7 @@ const stepsData = [
     screenshot: `${imagesDirectory}step3.svg`,
     number: `${imagesDirectory}number3.svg`,
     icon: `${imagesDirectory}howitworksplaceholder.svg`,
-    title: `Receive results from your research experts`,
+    title: `Enjoy results from your research experts`,
     content: `Be prepared to discover treasured memories and stories from your own family line! We guarantee the very best from our experts, and if you're not completely satisfied, just reach out and we'll give you your money back!`
   }
 ]

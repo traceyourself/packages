@@ -14,7 +14,7 @@ const questions1 = [ questions[0], questions[2], questions[4], questions[5] ]
 const questions2 = [ questions[1], questions[3], questions[6], questions[7] ]
 
 const QAndA = ({q, a}) =>
-  <div style={{color: '#DCDEE0'}}>
+  <div style={{color: '#CCD5DB'}}>
     <div {...{
       style: {
         marginBottom: '10px',

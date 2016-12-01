@@ -35,6 +35,7 @@ export default () =>
         zIndex: '2',
         position: 'fixed', top: '0', right: '0', bottom: '0', width: '100%',
         background: 'white',
+        boxShadow: '0 0 12px 5px rgba(0, 0, 0, 0.05)',
         height: '80px'
       }
     }}>

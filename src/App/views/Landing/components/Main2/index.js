@@ -65,7 +65,7 @@ const UI = ({viewSize}) =>
                 fontSize: '1.2em',
                 color: colors.slate[1]
               }
-            }}>Trace packages include:</div>
+            }}>Research packages include:</div>
             <img src='/assets/images/Main2/bullets.svg' />
           </div>
         </div>

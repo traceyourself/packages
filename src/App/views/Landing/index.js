@@ -62,7 +62,7 @@ const UI = () =>
         <Main1 />
       </WW>
     </div>
-    <div>
+    <div style={{padding: '0 16px'}}>
       <AsSeenIn />
     </div>
     <div {...{

@@ -52,10 +52,7 @@ const UI = ({viewportWidth}) => {
   return (
     <X {...{
       justify: 'space-around',
-      align: 'center',
-      style: {
-        padding: '0 16px'
-      }
+      align: 'center'
     }}>
       {viewportWidth < 900
         ? logos.filter(logo => !logo.unimportant).map(mapLogoDataToNode)

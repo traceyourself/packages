@@ -5,6 +5,19 @@ import { X, Y } from 'obj.Layout'
 
 import { colors } from 'App/style/settings'
 
+const triangle =
+  <img {...{
+    src: '/assets/images/Testimonials/triangle.svg',
+    style: {
+      position: 'absolute',
+      top: '6px',
+      left: '-28px',
+      transform: 'rotate(180deg)',
+      width: '29px',
+      height: '39px'
+    }
+  }} />
+
 const TestimonialUI = ({
   avatar, name, subname, quote,
   verticalLayout
@@ -18,16 +31,22 @@ const TestimonialUI = ({
 
   const quoteNode =
     <div {...{
+      width: '40',
+      height: '40',
       style: {
+        position: 'relative',
         marginTop: '8px',
         borderRadius: '12px',
         border: '2px solid #99B0C3',
-        backgroundColor: '#E5F0FA',
+        backgroundColor: '#EAF5FF',
         padding: '20px'
       }
-    }}>{'"'}{quote}{'"'}</div>
+    }}>
+      {!verticalLayout && triangle}
+      <div>{'"'}{quote}{'"'}</div>
+    </div>
 
-  const avatarSize = verticalLayout ? '50px' : '90px'
+  const avatarSize = verticalLayout ? '40px' : '80px'
   const avatarNode =
     <img {...{
       src: avatar,
@@ -53,7 +72,8 @@ const TestimonialUI = ({
     : (
       <X y>
         <div style={{
-          marginRight: '16px'
+          marginTop: '14px',
+          marginRight: '32px'
         }}>
           {avatarNode}
         </div>

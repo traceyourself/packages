@@ -9,7 +9,7 @@ const chooseRandom = (options) =>
 
 const urls = {
   buyPackage1: 'https://ancestorcloud.typeform.com/to/FPiX8R',
-  buyPackage2: 'https://nytimes.com'
+  buyPackage2: 'https://ancestorcloud.typeform.com/to/wf1uYE'
 }
 
 export const Links = {

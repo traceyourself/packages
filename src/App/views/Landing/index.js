@@ -1,9 +1,7 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
-import { StyleSheet, css } from 'aphrodite'
 import { colors } from 'App/style/settings'
-
-import { X, Y } from 'obj.Layout'
 
 import Nav from './components/Nav'
 import Main1 from './components/Main1'
@@ -15,7 +13,6 @@ import Packages from './components/Packages'
 import Testimonials from './components/Testimonials'
 import Gift from './components/Gift'
 import FAQ from './components/FAQ'
-import Links from './components/Links'
 import Footer from './components/Footer'
 
 const WW = ({children, maxWidth = 1000}) =>
@@ -28,21 +25,29 @@ const WW = ({children, maxWidth = 1000}) =>
     }
   }}>{children}</div>
 
+const NavWithWrapper = ({scrolledToTop}) =>
+  <div {...{
+    style: {
+      zIndex: '2',
+      position: 'fixed', top: '0', right: '0', bottom: '0', width: '100%', // eslint-disable-line
+      background: 'white',
+      boxShadow: !scrolledToTop && '0 0 12px 5px rgba(0, 0, 0, 0.05)',
+      height: '80px'
+    }
+  }}>
+    <WW>
+      <Nav />
+    </WW>
+  </div>
+
+const navMapStateToProps = ({ viewState: { scroll: { atTop } } }) => ({
+  scrolledToTop: atTop
+})
+const NavWithWrapperAndState = connect(navMapStateToProps)(NavWithWrapper)
+
 const UI = () =>
   <div>
-    <div {...{
-      style: {
-        zIndex: '2',
-        position: 'fixed', top: '0', right: '0', bottom: '0', width: '100%',
-        background: 'white',
-        boxShadow: '0 0 12px 5px rgba(0, 0, 0, 0.05)',
-        height: '80px'
-      }
-    }}>
-      <WW>
-        <Nav />
-      </WW>
-    </div>
+    <NavWithWrapperAndState />
     <div {...{
       style: {
         height: '80px'
@@ -57,9 +62,9 @@ const UI = () =>
         <Main1 />
       </WW>
     </div>
-    <WW>
+    <div style={{padding: '0 16px'}}>
       <AsSeenIn />
-    </WW>
+    </div>
     <div {...{
       style: {
         backgroundColor: '#FDFDFD',
@@ -149,7 +154,7 @@ const UI = () =>
     </div>
     <div {...{
       style: {
-        padding: '32px 0',
+        padding: '32px 0'
       }
     }}>
       <WW>
@@ -158,16 +163,9 @@ const UI = () =>
     </div>
   </div>
 
-const style = StyleSheet.create({
-  container: {
-    width: '100%',
-    minHeight: '100%'
-  }
-})
-
 export default React.createClass({
   loadTypeformScript () {
-    (function(){var qs,js,q,s,d=document,gi=d.getElementById,ce=d.createElement,gt=d.getElementsByTagName,id='typef_orm',b='https://s3-eu-west-1.amazonaws.com/share.typeform.com/';if(!gi.call(d,id)){js=ce.call(d,'script');js.id=id;js.src=b+'share.js';q=gt.call(d,'script')[0];q.parentNode.insertBefore(js,q)}})()
+    (function(){var qs,js,q,s,d=document,gi=d.getElementById,ce=d.createElement,gt=d.getElementsByTagName,id='typef_orm',b='https://s3-eu-west-1.amazonaws.com/share.typeform.com/';if(!gi.call(d,id)){js=ce.call(d,'script');js.id=id;js.src=b+'share.js';q=gt.call(d,'script')[0];q.parentNode.insertBefore(js,q)}})() // eslint-disable-line
   },
 
   componentDidMount () {

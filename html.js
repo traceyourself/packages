@@ -1,4 +1,26 @@
-var optimizelyScript = '<script src="https://cdn.optimizely.com/js/7973740065.js"></script>'
+var googleAnalyticsScript = function (gaId) {
+  return '<script>' +
+    '!function(m,i,k,e,y){m.GoogleAnalyticsObject=k;m[k]||(m[k]=function(){' +
+    '(m[k].q=m[k].q||[]).push(arguments)});m[k].l=+new Date;e=i.createElement("script");' +
+    'y=i.scripts[0];e.src="//www.google-analytics.com/analytics.js";' +
+    'y.parentNode.insertBefore(e,y)}(window,document,"ga");' +
+
+    'ga("create", "' + gaId + '", "auto");' +
+    'ga("send", "pageview")' +
+  '</script>'
+}
+
+var charsetTag = '<meta charset="utf-8"/>'
+var viewportTag = '<meta name="viewport" content="width=device-width, initial-scale=1">'
+var titleTag = '<title>Trace: Yourself, Discovered</title>'
+var optimizelyScriptTag = '<script src="https://cdn.optimizely.com/js/7973740065.js"></script>'
+
+var sharedHeadTags = optimizelyScriptTag + charsetTag + viewportTag + titleTag
+
+var appTag = '<div id="app"></div>'
+var scriptTag = function (scriptSrc) {
+  return '<script src="/' + scriptSrc + '"></script>'
+}
 
 module.exports = {
   dev: function (data) {
@@ -6,22 +28,12 @@ module.exports = {
       'index.html': [
         '<html>',
           '<head>',
-            optimizelyScript,
-
-            '<meta charset="utf-8"/>',
-            '<meta name="viewport" content="width=device-width, initial-scale=1">',
-            '<link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700" rel="stylesheet">',
-
-            '<script>(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){' +
-            '(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),' +
-            'm=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)' +
-            '})(window,document,"script","//www.google-analytics.com/analytics.js","ga");' +
-
-            'ga("create", "", "auto");</script>',
+            sharedHeadTags,
+            googleAnalyticsScript(''),
           '</head>',
           '<body>',
-            '<div id="app"></div>',
-            '<script src="/' + data.main + '"></script>',
+            appTag,
+            scriptTag(data.main),
           '</body>',
         '</html>'
       ].join('')
@@ -35,30 +47,21 @@ module.exports = {
       gaId: 'UA-47141819-10'
     }
 
+    var faviconTag = '<link rel="icon" href="' + config.favicon + '" type="image/x-icon" />'
+    var stylesheetTag = '<link href="/' + data.css + '" rel="stylesheet" type="text/css" />'
+
     return {
       'index.html': [
         '<html>',
           '<head>',
-            optimizelyScript,
-
-            '<meta charset="utf-8"/>',
-            '<meta name="viewport" content="width=device-width, initial-scale=1">',
-            '<link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700" rel="stylesheet">',
-            '<title>Trace: Yourself, Discovered</title>',
-            '<link rel="icon" href="' + config.favicon + '" type="image/x-icon" />',
-            '<link href="/' + data.css + '" rel="stylesheet" type="text/css" />',
-
-            '<script>!function(m,i,k,e,y){m.GoogleAnalyticsObject=k;m[k]||(m[k]=function(){' +
-            '(m[k].q=m[k].q||[]).push(arguments)});m[k].l=+new Date;e=i.createElement("script");' +
-            'y=i.scripts[0];e.src="//www.google-analytics.com/analytics.js";' +
-            'y.parentNode.insertBefore(e,y)}(window,document,"ga");' +
-
-            'ga("create", "' + config.gaId + '", "auto");</script>',
-            'ga("send", "pageview")',
+            sharedHeadTags,
+            faviconTag,
+            stylesheetTag,
+            googleAnalyticsScript(config.gaId),
           '</head>',
           '<body>',
-            '<div id="app"></div>',
-            '<script src="/' + data.main + '"></script>',
+            appTag,
+            scriptTag(data.main),
           '</body>',
         '</html>'
       ].join('')

@@ -4,14 +4,18 @@ import { colors } from 'App/style/settings'
 
 export const contactPhone = '801-717-9054'
 
+const chooseRandom = (options) =>
+  options[Math.floor(Math.random() * options.length)]
+
 const urls = {
-  buyPackage: 'https://ancestorcloud.typeform.com/to/FPiX8R'
+  buyPackage1: 'https://ancestorcloud.typeform.com/to/FPiX8R',
+  buyPackage2: 'https://nytimes.com'
 }
 
 export const Links = {
   BuyPackage: ({children}) =>
     <a {...{
-      href: 'https://ancestorcloud.typeform.com/to/FPiX8R',
+      href: chooseRandom([urls.buyPackage1, urls.buyPackage2]),
       className: 'typeform-share link',
       'data-mode': '2',
       target: '_blank'

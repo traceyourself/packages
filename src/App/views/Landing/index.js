@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+import { StyleSheet, css } from 'aphrodite'
 import { colors } from 'App/style/settings'
 
 import Nav from './components/Nav'
@@ -27,6 +28,9 @@ const WW = ({children, maxWidth = 1000}) =>
 
 const NavWithWrapper = ({scrolledToTop}) =>
   <div {...{
+    className: !scrolledToTop
+      ? css(navStyles.nav, navStyles.shadow)
+      : css(navStyles.nav),
     style: {
       zIndex: '2',
       position: 'fixed', top: '0', right: '0', bottom: '0', width: '100%', // eslint-disable-line
@@ -39,6 +43,19 @@ const NavWithWrapper = ({scrolledToTop}) =>
       <Nav />
     </WW>
   </div>
+
+const navStyles = StyleSheet.create({
+  nav: {
+    zIndex: '2',
+    position: 'fixed', top: '0', right: '0', bottom: '0', width: '100%', // eslint-disable-line
+    background: 'white',
+    height: '80px'
+  },
+  shadow: {
+    boxShadow: '0 0 12px 5px rgba(0, 0, 0, 0.05)',
+    transition: 'box-shadow 0.5s ease-in-out'
+  }
+})
 
 const navMapStateToProps = ({ viewState: { scroll: { atTop } } }) => ({
   scrolledToTop: atTop

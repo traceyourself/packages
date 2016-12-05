@@ -1,9 +1,13 @@
+var optimizelyScript = '<script src="https://cdn.optimizely.com/js/7973740065.js"></script>'
+
 module.exports = {
   dev: function (data) {
     return {
       'index.html': [
         '<html>',
           '<head>',
+            optimizelyScript,
+
             '<meta charset="utf-8"/>',
             '<meta name="viewport" content="width=device-width, initial-scale=1">',
             '<link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700" rel="stylesheet">',
@@ -28,13 +32,15 @@ module.exports = {
     var config = {
       title: 'AncestorCloud',
       favicon: '/assets/icons/favicon.ico',
-      gaId: ''
+      gaId: 'UA-47141819-10'
     }
 
     return {
       'index.html': [
         '<html>',
           '<head>',
+            optimizelyScript,
+
             '<meta charset="utf-8"/>',
             '<meta name="viewport" content="width=device-width, initial-scale=1">',
             '<link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700" rel="stylesheet">',
@@ -48,6 +54,7 @@ module.exports = {
             'y.parentNode.insertBefore(e,y)}(window,document,"ga");' +
 
             'ga("create", "' + config.gaId + '", "auto");</script>',
+            'ga("send", "pageview")',
           '</head>',
           '<body>',
             '<div id="app"></div>',

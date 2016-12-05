@@ -2,18 +2,20 @@ import React from 'react'
 
 import { connect } from 'react-redux'
 
-import { X, Y } from 'obj.Layout'
+import { X } from 'obj.Layout'
 
 const imageDirectory = '/assets/images/AsSeenIn/'
 
 const logos = [
   {
     filename: 'ksl.png',
-    height: 40
+    height: 40,
+    unimportant: true
   },
   {
     filename: 'beehive_startups.png',
-    height: 40
+    height: 40,
+    unimportant: true
   },
   {
     filename: 'techstars.png',
@@ -33,30 +35,38 @@ const logos = [
   }
 ]
 
-const logoNodes = logos.map(({filename, height}, i) =>
-  <div key={i}>
+const UI = ({viewportWidth}) => {
+  const mapLogoDataToNode = ({filename, height}, i) =>
     <img {...{
+      key: i,
       style: {
-        height,
-        margin: '20px'
+        height: viewportWidth < 400
+          ? height / 2
+          : viewportWidth < 600
+            ? height / 1.5
+            : height
       },
       src: `${imageDirectory}${filename}`
     }} />
-  </div>
-)
 
-const UI = ({verticalLayout}) =>
-  <X {...{
-    justify: 'center',
-    align: 'center',
-    wrap: 'wrap',
-    style: {
-      padding: '16px 0'
-    }
-  }}>{logoNodes}</X>
+  return (
+    <X {...{
+      justify: 'space-around',
+      align: 'center',
+      style: {
+        padding: '0 16px'
+      }
+    }}>
+      {viewportWidth < 900
+        ? logos.filter(logo => !logo.unimportant).map(mapLogoDataToNode)
+        : logos.map(mapLogoDataToNode)
+      }
+    </X>
+  )
+}
 
 const mapStateToProps = ({viewState: {viewportSize}}) => ({
-  verticalLayout: viewportSize.width < 300
+  viewportWidth: viewportSize.width
 })
 
 export default connect(mapStateToProps)(UI)

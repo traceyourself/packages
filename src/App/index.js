@@ -1,12 +1,29 @@
 import './style/css'
-import React, { PropTypes } from 'react'
+import React from 'react'
 
 import { MatchWithSubRoutes } from 'utils.routing'
 
 import { connect } from 'react-redux'
-import { updateViewportSize } from 'App/state/actions'
+import { updateViewportSize, updateScroll } from 'App/state/actions'
 
 const App = React.createClass({
+  getInitialState () {
+    return {
+      timers: {}
+    }
+  },
+
+  runThisFunctionOnlyAfterItHasntBeenRunForACertainAmountOfTime (name, fn, time) {
+    window.clearTimeout(this.state.timers[name])
+    this.setState({
+      ...this.state,
+      timers: {
+        ...this.state.timers,
+        [name]: window.setTimeout(fn, time)
+      }
+    })
+  },
+
   updateDimensions () {
     const { updateViewportSize } = this.props
     updateViewportSize({
@@ -19,17 +36,34 @@ const App = React.createClass({
     })
   },
 
+  startUpdateScrollTimer () {
+    this.runThisFunctionOnlyAfterItHasntBeenRunForACertainAmountOfTime(
+      'updateScroll',
+      this.updateScroll,
+      50
+    )
+  },
+
+  updateScroll () {
+    const { updateScroll } = this.props
+    const scrollTop = window.document.body.scrollTop
+    updateScroll({
+      atTop: scrollTop === 0
+    })
+  },
+
   componentWillMount () {
     this.updateDimensions()
+    this.updateScroll()
   },
 
   componentDidMount () {
-    window.addEventListener('resize', this.updateDimensions);
+    window.addEventListener('resize', this.updateDimensions)
+    window.addEventListener('scroll', this.startUpdateScrollTimer)
   },
 
   render () {
     const { routes } = this.props
-    // console.log(this.props)
     return (
       <div>
         {routes.map((route, i) => <MatchWithSubRoutes {...{ ...route, key: i }} />)}
@@ -40,6 +74,6 @@ const App = React.createClass({
 
 const mapStateToProps = _ => _
 
-const boundActions = { updateViewportSize }
+const boundActions = { updateViewportSize, updateScroll }
 
 export default connect(mapStateToProps, boundActions)(App)

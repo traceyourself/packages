@@ -15,6 +15,12 @@ const levels = {
     style: {
       fontSize: '2.0em'
     }
+  },
+  3: {
+    tag: 'h3',
+    style: {
+      fontSize: '1.5em'
+    }
   }
 }
 

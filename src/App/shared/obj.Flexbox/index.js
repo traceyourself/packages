@@ -5,7 +5,7 @@ import { cssIf } from 'utils.rendering'
 const Flexbox = ({tag = 'div', children, direction, wrap, justify, align, ...props}) => {
   const Tag = tag
   return (
-    <Tag { ...props } className={cssIf(style, style.Flex, {
+    <Tag {...props} className={cssIf(style, style.Flex, {
       [`Direction-${direction}`]: !!direction,
       [`Wrap-${wrap}`]: !!wrap,
       [`Justify-${justify}`]: !!justify,
@@ -21,7 +21,7 @@ const Flexbox = ({tag = 'div', children, direction, wrap, justify, align, ...pro
 Flexbox.propTypes = {
   direction: PropTypes.oneOf(['column', 'row-reverse']),
   wrap: PropTypes.oneOf(['wrap', 'wrap-reverse']),
-  justify: PropTypes.oneOf(['end', 'center', 'space-between']),
+  justify: PropTypes.oneOf(['end', 'center', 'space-between', 'space-around']),
   align: PropTypes.oneOf(['start', 'end', 'center', 'stretch']),
   tag: PropTypes.string,
   children: PropTypes.oneOfType([
@@ -77,6 +77,9 @@ const style = StyleSheet.create({
   },
   'Justify-space-between': {
     justifyContent: 'space-between'
+  },
+  'Justify-space-around': {
+    justifyContent: 'space-around'
   }
 
 })

@@ -1,53 +1,25 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { X } from 'obj.Layout'
+import { X, Y } from 'obj.Layout'
 import H from 'atm.Header'
 
 import { colors } from 'App/style/settings'
 
-import bulletsSvg from './bullets.svg'
-
-const packagesIncludeData = [
-  {
-    icon: '',
-    text: 'Stories'
-  },
-  {
-    icon: '',
-    text: 'Records'
-  },
-  {
-    icon: '',
-    text: 'Pictures'
-  },
-  {
-    icon: '',
-    text: 'Memories'
-  }
-]
-
-const bullets = packagesIncludeData.map(({icon, text}, i) =>
-  <div key={i}>
-    <X>
-      <img src={icon} />
-      <div>{text}</div>
-    </X>
-  </div>
-)
-
-const UI = ({viewSize}) =>
-  <X x>
+const UI = ({viewSize}) => {
+  const content =
     <X x>
       <X>
         <div>
-          <img {...{
-            src: '/assets/images/Main2/bookmark.svg',
-            style: {
-              width: '30px',
-              marginRight: '16px'
-            }
-          }} />
+          {viewSize !== 'mobile' &&
+            <img {...{
+              src: '/assets/images/Main2/bookmark.svg',
+              style: {
+                width: '30px',
+                marginRight: '16px'
+              }
+            }} />
+          }
         </div>
         <div>
           <H {...{
@@ -71,15 +43,36 @@ const UI = ({viewSize}) =>
         </div>
       </X>
     </X>
-    {viewSize !== 'mobile' &&
-      <div style={{marginLeft: '32px'}}>
-        <img {...{
-          src: '/assets/images/Main2/worldoftrace.svg',
-          width: viewSize === 'narrow' ? '200px' : '400px'
-        }} />
-      </div>
-    }
-  </X>
+
+  const image =
+    <img {...{
+      src: '/assets/images/Main2/worldoftrace.svg',
+      style: {
+        flexShrink: 0,
+        marginLeft: '32px',
+        marginBottom: viewSize === 'mobile' ? '50px' : '0',
+        width: viewSize === 'mobile'
+          ? '50%'
+          : viewSize === 'narrow'
+            ? '200px'
+            : '400px'
+      }
+    }} />
+
+  return viewSize === 'mobile'
+    ? (
+      <Y y>
+        {image}
+        {content}
+      </Y>
+    )
+    : (
+      <X x>
+        {content}
+        {image}
+      </X>
+    )
+}
 
 const mapStateToProps = ({ viewState: { viewportSize } }) => ({
   viewSize: viewportSize.width < 700

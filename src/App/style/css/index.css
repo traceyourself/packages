@@ -6,8 +6,14 @@
 @import "./base.elements";
 @import "./base.typography";
 
+@import "./nuka-carousel-overrides";
+
 html,
 body,
 #app {
   height: 100%;
+}
+
+.slider-decorator-0 {
+  display: none !important;
 }

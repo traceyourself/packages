@@ -1,22 +1,29 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { X } from 'obj.Layout'
+import { X, Y } from 'obj.Layout'
 import H from 'atm.Header'
 import Btn from 'atm.Btn'
 
 import { Links } from 'config.definitions'
 
-const UI = ({viewSize}) =>
-  <X x>
-    {viewSize !== 'mobile' &&
-      <div style={{marginRight: '32px'}}>
-        <img {...{
-          src: '/assets/images/Main1/hero1.svg',
-          width: viewSize === 'narrow' ? '200px' : '500px'
-        }} />
-      </div>
-    }
+const UI = ({viewSize}) => {
+  const image =
+    <img {...{
+      src: '/assets/images/Main1/hero1.svg',
+      width: viewSize === 'mobile'
+        ? '50%'
+        : viewSize === 'narrow'
+          ? '200px'
+          : '500px',
+      style: {
+        flexShrink: 0,
+        marginRight: '32px',
+        marginBottom: viewSize === 'mobile' && '16px'
+      }
+    }} />
+
+  const content =
     <div>
       <H {...{
         level: 2,
@@ -36,7 +43,21 @@ const UI = ({viewSize}) =>
         </Links.BuyPackage>
       </div>
     </div>
-  </X>
+
+  return viewSize === 'mobile'
+    ? (
+      <Y y>
+        {image}
+        {content}
+      </Y>
+    )
+    : (
+      <X x>
+        {image}
+        {content}
+      </X>
+    )
+}
 
 const mapStateToProps = ({ viewState: { viewportSize } }) => ({
   viewSize: viewportSize.width < 700

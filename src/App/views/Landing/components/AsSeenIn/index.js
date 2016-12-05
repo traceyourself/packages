@@ -54,7 +54,7 @@ const UI = ({viewportWidth}) => {
       justify: 'space-around',
       align: 'center'
     }}>
-      {viewportWidth < 900
+      {viewportWidth < 1000
         ? logos.filter(logo => !logo.unimportant).map(mapLogoDataToNode)
         : logos.map(mapLogoDataToNode)
       }

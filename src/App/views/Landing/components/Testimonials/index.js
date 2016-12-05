@@ -20,7 +20,7 @@ const createArrow = ({isPrevious}) => ({previousSlide, nextSlide}) =>
 const Testimonials = ({narrowView}) =>
   <Carousel {...{
     autoplay: true,
-    autoplayInterval: 50000,
+    autoplayInterval: 5000,
     wrapAround: true,
     decorators: narrowView
       ? []

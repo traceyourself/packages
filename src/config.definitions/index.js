@@ -81,7 +81,7 @@ export const testimonials = [
   {
     person: people.fred,
     package: packages.lineage,
-    quote: `I've been trying to get this information for years. AncestorCloud made it all possible. Thanks so much.`
+    quote: `I've been trying to get this information for years. Trace made it all possible. Thanks so much.`
   },
   {
     person: people.anna,
@@ -91,7 +91,7 @@ export const testimonials = [
   {
     person: people.jordan,
     package: packages.origins,
-    quote: `The trip exceeded my expectations. I would do it again in a heartbeat, I’m hoping to do it in another country.`
+    quote: `The research exceeded my expectations. I would do it again in a heartbeat, I’m hoping to do it in another country.`
   },
   {
     person: people.rebecca,

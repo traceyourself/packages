@@ -7,18 +7,39 @@ import Carousel from 'nuka-carousel'
 import { X } from 'obj.Layout'
 import Testimonial from './shared/Testimonial'
 
+const createArrow = ({isPrevious}) => ({previousSlide, nextSlide}) =>
+  <img {...{
+    src: '/assets/images/Testimonials/arrow.svg',
+    onClick: isPrevious ? previousSlide : nextSlide,
+    style: {
+      transform: isPrevious && 'rotate(180deg)',
+      cursor: 'pointer'
+    }
+  }} />
+
 const Testimonials = ({narrowView}) =>
   <Carousel {...{
     autoplay: true,
-    autoplayInterval: 5000,
+    autoplayInterval: 50000,
     wrapAround: true,
-    decorators: narrowView ? [] : undefined
+    decorators: narrowView
+      ? []
+      : [
+        {
+          component: createArrow({ isPrevious: false }),
+          position: 'CenterRight'
+        },
+        {
+          component: createArrow({ isPrevious: true }),
+          position: 'CenterLeft'
+        }
+      ]
   }}>
     {testimonials.map(({person, quote}, i) =>
       <div {...{
         key: i,
         style: {
-          padding: narrowView ? '0' : '0 80px'
+          padding: narrowView ? '0' : '0 60px'
         }
       }}>
         <X x y style={{minHeight: '240px'}}>

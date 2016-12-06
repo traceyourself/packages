@@ -1,0 +1,19 @@
+@import "./generic.reset";
+@import "./generic.normalize";
+@import "./generic.box-sizing";
+@import "./generic.placeholder";
+
+@import "./base.elements";
+@import "./base.typography";
+
+@import "./nuka-carousel-overrides";
+
+html,
+body,
+#app {
+  height: 100%;
+}
+
+.slider-decorator-0 {
+  display: none !important;
+}

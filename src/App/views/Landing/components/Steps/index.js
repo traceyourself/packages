@@ -40,29 +40,9 @@ const UI = ({compactLayout}) =>
     <H {...{
       copy: 'How It Works',
       level: 2
-    }}/>
-    {stepsData.map(({screenshot, number, icon, title, content}, i) =>
-      <X x {...{
-        style: {
-          marginTop: i > 0 ? '200px' : '100px',
-          flexDirection: i % 2 ? 'row' : 'row-reverse'
-        },
-        key: i
-      }}>
-        {!compactLayout &&
-          <div {...{
-            style: {
-              margin: i % 2 ? '0 32px 0 0' : '0 0 0 32px'
-            }
-          }}>
-            <img {...{
-              src: screenshot,
-              style: {
-                width: '400px'
-              }
-            }} />
-          </div>
-        }
+    }} />
+    {stepsData.map(({screenshot, number, icon, title, content}, i) => {
+      const stepNode =
         <Step {...{
           number,
           image: icon,
@@ -70,8 +50,51 @@ const UI = ({compactLayout}) =>
           content,
           compact: compactLayout
         }} />
-      </X>
-    )}
+
+      return compactLayout
+        ? (
+          <Y y {...{
+            style: {
+              marginTop: i > 0 ? '200px' : '100px',
+              flexDirection: i % 2 ? 'row' : 'row-reverse'
+            },
+            key: i
+          }}>
+            <img {...{
+              src: screenshot,
+              style: {
+                marginBottom: '16px',
+                width: '100%',
+                maxWidth: '300px'
+              }
+            }} />
+            {stepNode}
+          </Y>
+        )
+        : (
+          <X x {...{
+            style: {
+              marginTop: i > 0 ? '200px' : '100px',
+              flexDirection: i % 2 ? 'row' : 'row-reverse'
+            },
+            key: i
+          }}>
+            <div {...{
+              style: {
+                margin: i % 2 ? '0 32px 0 0' : '0 0 0 32px'
+              }
+            }}>
+              <img {...{
+                src: screenshot,
+                style: {
+                  width: '400px'
+                }
+              }} />
+            </div>
+            {stepNode}
+          </X>
+        )
+    })}
   </Y>
 
 const mapStateToProps = ({ viewState: { viewportSize } }) => ({

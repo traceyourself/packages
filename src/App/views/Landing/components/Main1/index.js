@@ -7,6 +7,7 @@ import Btn from 'atm.Btn'
 
 import { Links } from 'config.definitions'
 
+
 const UI = ({viewSize}) => {
   const image =
     <img {...{

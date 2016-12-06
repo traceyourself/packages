@@ -46,7 +46,7 @@ const UI = ({viewSize}) => {
 
   const image =
     <img {...{
-      src: '/assets/images/Main2/worldoftrace.svg',
+      src: '/assets/images/Main2/worldoftrace.png',
       style: {
         flexShrink: 0,
         marginLeft: '32px',
@@ -55,7 +55,7 @@ const UI = ({viewSize}) => {
           ? '50%'
           : viewSize === 'narrow'
             ? '200px'
-            : '400px'
+            : '390px'
       }
     }} />
 

@@ -10,12 +10,12 @@ import { Links } from 'config.definitions'
 const UI = ({viewSize}) => {
   const image =
     <img {...{
-      src: '/assets/images/Main1/hero1.svg',
+      src: '/assets/images/Main1/hero1.png',
       width: viewSize === 'mobile'
         ? '50%'
         : viewSize === 'narrow'
           ? '200px'
-          : '500px',
+          : '490px',
       style: {
         flexShrink: 0,
         marginRight: '32px',

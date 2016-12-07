@@ -2553,7 +2553,7 @@ npmlog@4.x:
     gauge "~2.6.0"
     set-blocking "~2.0.0"
 
-nuka-carousel@^2.0.3:
+nuka-carousel@2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/nuka-carousel/-/nuka-carousel-2.0.3.tgz#857d9350e24a62f123bdd200fe71944ebd7e7dc4"
   dependencies:

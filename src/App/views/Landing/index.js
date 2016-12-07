@@ -17,7 +17,7 @@ import Gift from './components/Gift'
 import FAQ from './components/FAQ'
 import Footer from './components/Footer'
 
-const WW = ({children, maxWidth = 1000}) =>
+const WW = ({children, maxWidth = 1100}) =>
   <div {...{
     style: {
       margin: '0 auto',
@@ -67,7 +67,7 @@ const UI = ({success}) =>
     {success && <Success />}
     <div {...{
       style: {
-        padding: '64px 0'
+        padding: '128px 0'
       }
     }}>
       <WW>
@@ -80,7 +80,7 @@ const UI = ({success}) =>
     <div {...{
       style: {
         backgroundColor: '#FDFDFD',
-        padding: '64px 0'
+        padding: '128px 0'
       }
     }}>
       <WW>

@@ -5,6 +5,7 @@ import { StyleSheet, css } from 'aphrodite'
 import { colors } from 'App/style/settings'
 
 import Nav from './components/Nav'
+import Success from './components/Success'
 import Main1 from './components/Main1'
 import AsSeenIn from './components/AsSeenIn'
 import Main2 from './components/Main2'
@@ -30,14 +31,7 @@ const NavWithWrapper = ({scrolledToTop}) =>
   <div {...{
     className: !scrolledToTop
       ? css(navStyles.nav, navStyles.shadow)
-      : css(navStyles.nav),
-    style: {
-      zIndex: '2',
-      position: 'fixed', top: '0', right: '0', bottom: '0', width: '100%', // eslint-disable-line
-      background: 'white',
-      boxShadow: !scrolledToTop && '0 0 12px 5px rgba(0, 0, 0, 0.05)',
-      height: '80px'
-    }
+      : css(navStyles.nav)
   }}>
     <WW>
       <Nav />
@@ -62,7 +56,7 @@ const navMapStateToProps = ({ viewState: { scroll: { atTop } } }) => ({
 })
 const NavWithWrapperAndState = connect(navMapStateToProps)(NavWithWrapper)
 
-const UI = () =>
+const UI = ({success}) =>
   <div>
     <NavWithWrapperAndState />
     <div {...{
@@ -70,6 +64,7 @@ const UI = () =>
         height: '80px'
       }
     }} />
+    {success && <Success />}
     <div {...{
       style: {
         padding: '64px 0'
@@ -190,6 +185,6 @@ export default React.createClass({
   },
 
   render () {
-    return <UI />
+    return <UI {...this.props} />
   }
 })

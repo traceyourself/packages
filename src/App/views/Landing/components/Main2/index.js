@@ -49,10 +49,10 @@ const UI = ({viewSize}) => {
       src: '/assets/images/Main2/worldoftrace.png',
       style: {
         flexShrink: 0,
-        marginLeft: '32px',
+        marginLeft: viewSize !== 'mobile' && '32px',
         marginBottom: viewSize === 'mobile' ? '50px' : '0',
         width: viewSize === 'mobile'
-          ? '50%'
+          ? '70%'
           : viewSize === 'narrow'
             ? '200px'
             : '390px'

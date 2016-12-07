@@ -35,6 +35,7 @@ const UI = () =>
         // mozAllowFullScreen: true,
         allowFullScreen: true,
         style: {
+          borderRadius: '16px',
           width: '100%',
           maxWidth: `${maxWidth}px`,
           height: `calc(calc(100vw - ${paddingFromViewport * 2}px) / ${ratio})`,

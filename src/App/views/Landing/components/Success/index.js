@@ -31,8 +31,12 @@ const Success = React.createClass({
   },
 
   render () {
-    return !this.state.closed && (
-      <div className={css(styles.wrapper)}>
+    return (
+      <div {...{
+        className: this.state.closed
+          ? css(styles.wrapper, styles['wrapper-closed'])
+          : css(styles.wrapper)
+      }}>
         <img {...{
           className: css(styles.closeButton),
           src: '/assets/images/Success/x.svg',
@@ -42,7 +46,7 @@ const Success = React.createClass({
         {trackingPixelThatIsSupposedToBeAddedDynamically}
         <H {...{
           level: 2,
-          copy: 'Success!',
+          copy: 'Thank You!',
           style: {
             color: 'white'
           }
@@ -53,7 +57,7 @@ const Success = React.createClass({
             fontSize: '1.4em',
             color: 'white'
           }
-        }}>{`This is a placeholder.`}</div>
+        }}>{`Our team will contact you soon with next steps.`}</div>
       </div>
     )
   }
@@ -63,15 +67,29 @@ const closeButtonSize = 32
 const styles = StyleSheet.create({
   wrapper: {
     position: 'relative',
-    padding: '200px 0',
+    height: '400px',
+    padding: '0 16px',
     backgroundColor: '#43C6CF',
-    textAlign: 'center'
+    textAlign: 'center',
+    opacity: '1.0',
+
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+
+  'wrapper-closed': {
+    height: '0px',
+    opacity: '0.0',
+
+    transition: 'height 1s, opacity 1s'
   },
 
   closeButton: {
     position: 'absolute',
-    top: '10px',
-    right: '10px',
+    top: '32px',
+    right: '32px',
     width: `${closeButtonSize}px`,
     height: `${closeButtonSize}px`,
     cursor: 'pointer'

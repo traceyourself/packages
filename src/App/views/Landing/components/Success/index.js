@@ -16,7 +16,7 @@ const Success = React.createClass({
   componentDidMount () {
     var axel = Math.random() + ''
     var a = axel * 10000000000000
-    document.write('<img src="https://pubads.g.doubleclick.net/activity;xsp=25565;ord=' + a + '?" width=1 height=1 border=0/>')
+    document.body.innerHTML += '<img src="https://pubads.g.doubleclick.net/activity;xsp=25565;ord=' + a + '?" width=1 height=1 border=0/>'
   },
 
   render () {

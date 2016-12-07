@@ -13,7 +13,7 @@ const UI = ({viewSize}) => {
     <img {...{
       src: '/assets/images/Main1/hero1.png',
       width: viewSize === 'mobile'
-        ? '50%'
+        ? '70%'
         : viewSize === 'narrow'
           ? '200px'
           : '490px',

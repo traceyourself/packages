@@ -17,7 +17,7 @@ const stepsData = [
     number: `${imagesDirectory}number1.svg`,
     icon: `${imagesDirectory}howitworksplaceholder.svg`,
     title: `Select your research package`,
-    content: `Our experts will provide the research to help you discover the most of your family story. Choose between our Origins Package or the Lineage Package.`
+    content: `Our experts will provide the research necessary to help you on your journey to discover your family's story. Choose between our Origins Package or the Lineage Package.`
   },
   {
     screenshot: `${imagesDirectory}step2.svg`,

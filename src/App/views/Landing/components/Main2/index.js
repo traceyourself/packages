@@ -8,40 +8,43 @@ import { colors } from 'App/style/settings'
 
 const UI = ({viewSize}) => {
   const content =
-    <X x>
-      <X>
-        <div>
-          {viewSize !== 'mobile' &&
-            <img {...{
-              src: '/assets/images/Main2/bookmark.svg',
-              style: {
-                width: '30px',
-                marginRight: '16px'
-              }
-            }} />
-          }
-        </div>
-        <div>
-          <H {...{
-            copy: 'Everyone has a story. Find yours.',
-            level: 2
+    <X>
+      <div>
+        {viewSize !== 'mobile' &&
+          <img {...{
+            src: '/assets/images/Main2/bookmark.svg',
+            style: {
+              width: '30px',
+              marginRight: '16px'
+            }
           }} />
-          <div style={{
-            marginTop: '16px'
-          }}>{`Each family is unique, a story waiting to be told. We'll provide you with the people and history you never knew without tedious research. With Trace, learning about you has never been easier.`}</div>
-          <div style={{ marginTop: '32px' }}>
-            <div {...{
-              style: {
-                marginBottom: '8px',
-                fontWeight: 'bold',
-                fontSize: '1.2em',
-                color: colors.slate[1]
-              }
-            }}>Research packages include:</div>
-            <img src='/assets/images/Main2/bullets.svg' />
-          </div>
+        }
+      </div>
+      <div>
+        <H {...{
+          copy: 'Everyone has a story. Find yours.',
+          level: 2
+        }} />
+        <div style={{
+          marginTop: '16px'
+        }}>{`Each family is unique, a story waiting to be told. We'll provide you with the people and history you never knew without tedious research. With Trace, learning about you has never been easier.`}</div>
+        <div style={{ marginTop: '32px' }}>
+          <div {...{
+            style: {
+              marginBottom: '8px',
+              fontWeight: 'bold',
+              fontSize: '1.2em',
+              color: colors.slate[1]
+            }
+          }}>Research packages include:</div>
+          <img {...{
+            src: '/assets/images/Main2/bullets.svg',
+            style: {
+              maxWidth: '100%'
+            }
+          }} />
         </div>
-      </X>
+      </div>
     </X>
 
   const image =

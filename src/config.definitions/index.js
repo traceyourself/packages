@@ -15,7 +15,7 @@ const urls = {
 export const Links = {
   BuyPackage: ({children}) =>
     <a {...{
-      href: chooseRandom([urls.buyPackage1, urls.buyPackage2]),
+      href: urls.buyPackage2,
       className: 'typeform-share link',
       'data-mode': '2',
       target: '_blank'

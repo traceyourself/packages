@@ -16,22 +16,22 @@ const stepsData = [
     screenshot: `${imagesDirectory}step1.svg`,
     number: `${imagesDirectory}number1.svg`,
     icon: `${imagesDirectory}howitworksplaceholder.svg`,
-    title: `Select your research package`,
-    content: `Our experts will provide the research necessary to help you on your journey to discover your family's story. Choose between our Origins Package or the Lineage Package.`
+    title: `Select your Trace package`,
+    content: `Our experts will provide the research necessary to help you on your journey to discover your family's story. Choose between our Origins Package or the Lineage Package and fill out a short survey about your family.`
   },
   {
-    screenshot: `${imagesDirectory}step2.svg`,
+    screenshot: `${imagesDirectory}research.svg`,
     number: `${imagesDirectory}number2.svg`,
     icon: `${imagesDirectory}howitworksplaceholder.svg`,
-    title: `Fill out a short survey about your family`,
-    content: `Help us help you! Fill out a short survey about your family so you can have the most accurate information.`
+    title: `We do the hard research`,
+    content: `We will hand-pick an experienced researcher, best suited to uncover your story. They will do all the heavy living in research and compiling your family’s narrative.`
   },
   {
-    screenshot: `${imagesDirectory}step3.svg`,
+    screenshot: `${imagesDirectory}openbox.svg`,
     number: `${imagesDirectory}number3.svg`,
     icon: `${imagesDirectory}howitworksplaceholder.svg`,
-    title: `Enjoy results from your research experts`,
-    content: `Be prepared to discover treasured memories and stories from your own family line! We guarantee the very best from our experts, and if you're not completely satisfied, just reach out and we'll give you your money back!`
+    title: `Receive your Trace package in the mail!`,
+    content: `Within a month of placing your order, you’ll receive expert research on your family, complete with bios, documents, pictures and more. If you're not completely satisfied, just reach out and we'll give you your money back!`
   }
 ]
 
@@ -87,7 +87,8 @@ const UI = ({compactLayout}) =>
               <img {...{
                 src: screenshot,
                 style: {
-                  width: '400px'
+                  width: '400px',
+                  maxHeight: '280px'
                 }
               }} />
             </div>

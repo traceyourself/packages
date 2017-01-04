@@ -8,16 +8,6 @@ import H from 'atm.Header'
 import { Links } from 'config.definitions'
 
 const UI = ({viewSize}) => {
-  const imageNode =
-    <div>
-      <img {...{
-        src: '/assets/images/Gift/gift.svg',
-        style: {
-          width: viewSize === 'mobile' ? '100px' : '300px'
-        }
-      }} />
-    </div>
-
   const textNodes = [
     <H {...{
       copy: 'Give the gift of family',
@@ -26,10 +16,11 @@ const UI = ({viewSize}) => {
         textAlign: 'center',
         fontSize: '1.2em'
       }
-    }}/>,
+    }} />,
     <div {...{
       style: {
-        margin: '16px 0 32px 0'
+        margin: '16px 0 32px 0',
+        fontWeight: '500'
       }
     }}>{`Unite with your loved ones as you share the stories and memories that make them who they are! They can discover more about distant relatives, their origins, the stories, and details about their family history.`}</div>,
     <Links.BuyPackage>
@@ -38,16 +29,13 @@ const UI = ({viewSize}) => {
         style: {
           backgroundColor: '#D65C34'
         }
-      }}/>
+      }} />
     </Links.BuyPackage>
   ]
 
   return viewSize === 'mobile'
     ? (
-      <Y y>
-        <div style={{marginBottom: '16px'}}>
-          {imageNode}
-        </div>
+      <Y y style={{textShadow: '0 1px 1px rgba(255, 255, 255, 0.9)'}}>
         <Y y>
           {textNodes.map((n, i) => <div key={i}>{n}</div>)}
         </Y>
@@ -58,7 +46,6 @@ const UI = ({viewSize}) => {
         <div style={{maxWidth: '500px'}}>
           {textNodes.map((n, i) => <div key={i}>{n}</div>)}
         </div>
-        {imageNode}
       </X>
     )
 }

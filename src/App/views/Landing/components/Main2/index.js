@@ -108,14 +108,14 @@ const UI = ({viewSize}) =>
     ? (
       <Wrapper mobile>
         <div style={{padding: '32px'}}>
-          <FullContent />
+          <ContentText />
         </div>
       </Wrapper>
     )
     : (
       <Wrapper>
         <div style={{maxWidth: '400px'}}>
-          <ContentText />
+          <FullContent />
         </div>
       </Wrapper>
     )

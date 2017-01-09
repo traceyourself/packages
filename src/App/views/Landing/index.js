@@ -77,16 +77,7 @@ const UI = ({success}) =>
     <div style={{padding: '50px 16px'}}>
       <AsSeenIn />
     </div>
-    <div {...{
-      style: {
-        backgroundColor: '#FDFDFD',
-        padding: '128px 0'
-      }
-    }}>
-      <WW>
-        <Main2 />
-      </WW>
-    </div>
+    <Main2 />
     <div {...{
       id: 'HowItWorks',
       style: {
@@ -141,9 +132,37 @@ const UI = ({success}) =>
     </div>
     <div {...{
       style: {
+        position: 'relative',
         padding: '64px 0'
       }
     }}>
+      <div {...{
+        style: {
+          position: 'absolute',
+          top: '0',
+          right: '0',
+          bottom: '0',
+          width: '700px',
+          background: '#000',
+          backgroundImage: `url('/assets/images/Main2/tracepackagereal.jpg')`,
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center center',
+          backgroundSize: '1000px',
+          zIndex: '-1',
+          opacity: '0.5'
+        }
+      }}>
+        <div {...{
+          style: {
+            position: 'absolute',
+            top: '0',
+            right: '0',
+            bottom: '0',
+            left: '0',
+            background: `linear-gradient(to left, rgba(0, 0, 0, 0.0), rgba(255, 255, 255, 1.0))`
+          }
+        }} />
+      </div>
       <WW>
         <Gift />
       </WW>

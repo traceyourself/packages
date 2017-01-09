@@ -1,88 +1,129 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { X, Y } from 'obj.Layout'
+import { css } from 'aphrodite/no-important'
+import styles from './styles'
+
+import { X } from 'obj.Layout'
 import H from 'atm.Header'
 
-import { colors } from 'App/style/settings'
+const imagesDirectory = '/assets/images/Main2/'
 
-const UI = ({viewSize}) => {
-  const content =
-    <X>
-      <div>
-        {viewSize !== 'mobile' &&
-          <img {...{
-            src: '/assets/images/Main2/bookmark.svg',
-            style: {
-              width: '30px',
-              marginRight: '16px'
-            }
-          }} />
-        }
-      </div>
-      <div>
-        <H {...{
-          copy: 'Everyone has a story. Find yours.',
-          level: 2
-        }} />
-        <div style={{
-          marginTop: '16px'
-        }}>{`Each family is unique, a story waiting to be told. We'll provide you with the people and history you never knew without tedious research. With Trace, learning about you has never been easier.`}</div>
-        <div style={{ marginTop: '32px' }}>
-          <div {...{
-            style: {
-              marginBottom: '8px',
-              fontWeight: 'bold',
-              fontSize: '1.2em',
-              color: colors.slate[1]
-            }
-          }}>Research packages include:</div>
-          <img {...{
-            src: '/assets/images/Main2/bullets.svg',
-            style: {
-              maxWidth: '100%'
-            }
-          }} />
-        </div>
-      </div>
-    </X>
+const packageItems = [
+  {
+    icon: `${imagesDirectory}orangebook.svg`,
+    name: 'Stories'
+  },
+  {
+    icon: `${imagesDirectory}orangecamera.svg`,
+    name: 'Pictures'
+  },
+  {
+    icon: `${imagesDirectory}orangefolders.svg`,
+    name: 'Records'
+  }
+]
 
-  const image =
+const BackgroundImage = ({children, fade}) =>
+  <div {...{
+    className: css(styles.backgroundImage),
+    style: {
+      opacity: fade ? '0.2' : '1.0'
+    }
+  }}>{children}</div>
+
+const Gradient = () =>
+  <div {...{
+    className: css(styles.gradient)
+  }} />
+
+const Wrapper = ({children, mobile}) =>
+  <div {...{
+    className: css(styles[mobile ? 'wrapper-mobile' : 'wrapper'])
+  }}>
+    <BackgroundImage {...{
+      fade: mobile
+    }} />
+    {!mobile &&
+      <Gradient />
+    }
+    {children}
+  </div>
+
+const PackageItem = ({icon, name}) =>
+  <X x style={{marginTop: '16px'}}>
     <img {...{
-      src: '/assets/images/Main2/worldoftrace.png',
+      src: icon,
       style: {
-        flexShrink: 0,
-        marginLeft: viewSize !== 'mobile' && '32px',
-        marginBottom: viewSize === 'mobile' ? '50px' : '0',
-        width: viewSize === 'mobile'
-          ? '70%'
-          : viewSize === 'narrow'
-            ? '200px'
-            : '390px'
+        width: '50px',
+        height: '50px'
       }
     }} />
+    <div {...{
+      style: {
+        paddingLeft: '16px',
+        fontSize: '1.5em',
+        fontWeight: 'bold',
+        color: '#F4865D'
+      }
+    }}>{name}</div>
+  </X>
 
-  return viewSize === 'mobile'
+const ContentText = () =>
+  <div>
+    <H {...{
+      copy: 'Everyone has a story. Find yours.',
+      level: 2
+    }} />
+    <div style={{marginTop: '12px', fontWeight: '500'}}>
+      {`Each family is unique, a story waiting to be told. We'll provide you with the people and history you never knew without tedious research. With Trace, learning about you has never been easier.`}
+    </div>
+    <div style={{paddingTop: '16px'}}>
+      {packageItems.map(({icon, name}, i) =>
+        <div key={i}>
+          <PackageItem {...{ icon, name }} />
+        </div>
+      )}
+    </div>
+  </div>
+
+const Bookmark = () =>
+  <img {...{
+    src: '/assets/images/Main2/lightbluebookmark.svg',
+    style: {
+      width: '30px'
+    }
+  }} />
+
+const FullContent = () =>
+  <X>
+    <div style={{marginRight: '16px'}}>
+      <Bookmark />
+    </div>
+    <ContentText />
+  </X>
+
+const UI = ({viewSize}) =>
+  viewSize === 'mobile'
     ? (
-      <Y y>
-        {image}
-        {content}
-      </Y>
+      <Wrapper mobile>
+        <div style={{padding: '32px'}}>
+          <ContentText />
+        </div>
+      </Wrapper>
     )
     : (
-      <X x>
-        {content}
-        {image}
-      </X>
+      <Wrapper>
+        <div style={{maxWidth: '400px'}}>
+          <FullContent />
+        </div>
+      </Wrapper>
     )
-}
 
 const mapStateToProps = ({ viewState: { viewportSize } }) => ({
-  viewSize: viewportSize.width < 700
+  viewSize: viewportSize.width < 1000
     ? 'mobile'
-    : viewportSize.width < 900
-      ? 'narrow'
-      : 'full'
+    : 'full'
 })
 
 export default connect(mapStateToProps)(UI)

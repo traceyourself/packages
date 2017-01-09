@@ -25,7 +25,7 @@ const Nav = ({viewWidth}) => {
     marginLeft: viewWidth < breakpoints.narrow
       ? '8px'
       : '32px',
-    fontSize: viewWidth < breakpoints.narrow ? '11px' :'14px',
+    fontSize: viewWidth < breakpoints.narrow ? '11px' : '14px',
     fontWeight: 'bold',
     color: colors.slate[2],
     textDecoration: 'none',
@@ -34,7 +34,7 @@ const Nav = ({viewWidth}) => {
   }
 
   return (
-    <X x spaced style={{
+    <X x y spaced style={{
       width: '100%',
       height: '100%'
     }}>
@@ -50,7 +50,7 @@ const Nav = ({viewWidth}) => {
           }
         }} />
       </a>
-      <X>
+      <X x>
         {links.map(({copy, to}, i) =>
           <Link {...{
             key: i,
@@ -76,7 +76,7 @@ const Nav = ({viewWidth}) => {
                 width: '13px',
                 height: '13px'
               }
-            }}/>
+            }} />
             {contactPhone}
           </X>
         </a>

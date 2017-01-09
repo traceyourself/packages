@@ -9,6 +9,12 @@
 
 @font-face {
   font-family: Museo Sans;
+  font-weight: 500;
+  src: url('/assets/fonts/MuseoSans/MuseoSans-500.otf');
+}
+
+@font-face {
+  font-family: Museo Sans;
   font-weight: bold;
   src: url('/assets/fonts/MuseoSans/MuseoSans-900.otf');
 }

@@ -33,7 +33,7 @@ export const packages = {
       'Contextual information',
       'Pictures, records, and documents'
     ],
-    price: 149,
+    price: 199,
     link: urls.buyPackage
   },
   lineage: {
@@ -47,7 +47,7 @@ export const packages = {
       'Pictures, records, and documents',
       'Cited sources and research log'
     ],
-    price: 299,
+    price: 499,
     disabled: true
   }
 }

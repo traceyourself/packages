@@ -33,7 +33,7 @@ export const packages = {
       'Contextual information',
       'Pictures, records, and documents'
     ],
-    price: 199,
+    price: 299,
     link: urls.buyPackage
   },
   lineage: {

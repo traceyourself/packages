@@ -24,7 +24,7 @@ const stepsData = [
     number: `${imagesDirectory}number2.svg`,
     icon: `${imagesDirectory}howitworksplaceholder.svg`,
     title: `We do the hard research`,
-    content: `We will hand-pick an experienced researcher, best suited to uncover your story. They will do all the heavy lifting in research and compiling your family’s narrative.`
+    content: `We will hand-pick an experienced researcher, best suited to uncover your story. They will do all the heavy lifting of researching and compiling your family’s narrative.`
   },
   {
     screenshot: `${imagesDirectory}openbox.svg`,
